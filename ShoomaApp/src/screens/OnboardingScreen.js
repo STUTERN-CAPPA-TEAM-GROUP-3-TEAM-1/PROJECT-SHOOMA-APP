@@ -44,14 +44,18 @@ function OnboardingScreen({navigation}) {
   pages={[
     {
       backgroundColor: '#0C7842',
-      image: <Image source={require('../assets/onboard1.png')} />,
+      image: <Image style={{ width: 353,
+        height: 660,
+        resizeMode: 'cover', marginTop: 52}} source={require('../assets/onboard1.png')} />,
       title: '',
       subtitle: '',
     },
   
     {
       backgroundColor: '#0C7842',
-      image: <Image source={require('../assets/onboard2.png')} />,
+      image: <Image style={{ width: 353,
+        height: 660,
+        resizeMode: 'cover', marginTop: 52}} source={require('../assets/onboard2.png')} />,
       title: '',
       subtitle: '',
     },
