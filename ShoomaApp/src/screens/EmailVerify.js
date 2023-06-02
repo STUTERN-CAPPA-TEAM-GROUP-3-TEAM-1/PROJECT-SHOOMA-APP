@@ -1,6 +1,6 @@
 import React from 'react'
 import { Image, Text, View, TouchableOpacity, Button, Alert, SafeAreaView, TextInput, StyleSheet, Linking } from 'react-native';
-
+import { Link } from '@react-navigation/native';
 
 function EmailVerify() {
   return (
@@ -10,7 +10,7 @@ function EmailVerify() {
     flex: 1,
     justifyContent: 'center'}}>
     <View>
-      <Image style={{alignSelf: 'center', marginBottom: 40 }} source={require('../assets/Signup_logo.png')} />
+      <Image style={{alignSelf: 'center', marginBottom: 40 }} source={require('../assets/email.png')} />
     </View>
 
 <View style={{marginLeft:15}}>
@@ -25,7 +25,10 @@ function EmailVerify() {
    
         <TouchableOpacity style={{ backgroundColor: '#0C7842', padding: 12, borderRadius: 20,
         marginTop:10, width: '100%'}}>
-        <Text style={{ color: '#fff', alignSelf: "center"}}>Next</Text>
+    
+        <Link style={{color:'white', alignSelf: 'center'}} to={{ screen: 'EmailCode', params: { id: 'code' } }}>
+         Next
+    </Link>
       </TouchableOpacity>
       </View>
 
@@ -35,9 +38,6 @@ function EmailVerify() {
     
 
 )
-
-
-
   
 }
 

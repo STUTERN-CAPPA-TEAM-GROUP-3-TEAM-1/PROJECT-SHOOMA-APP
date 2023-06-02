@@ -17,7 +17,7 @@ const BottomTabs = () => {
       initialRouteName="Home"
       screenOptions={{ headerShown: true, tabBarShowLabel: false }}
     >
-      <Tab.Screen
+      <Tab.Screen style={{backgroundColor: '#F3F3F3'}}
         name="Home"
         component={Home}
         options={{
@@ -32,10 +32,10 @@ const BottomTabs = () => {
                 }}
               >
                 <Image
-                  source={require("../assets/home.png")}
+                  source={require("../assets/homeicon.png")}
                   style={{
-                    width: 25,
-                    height: 25,
+                    width: 16,
+                    height: 18,
                     
                   }}
                 />

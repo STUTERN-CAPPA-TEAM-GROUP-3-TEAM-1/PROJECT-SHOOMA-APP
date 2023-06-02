@@ -8,7 +8,7 @@ const Skip = ({...props}) => (
       style={{marginHorizontal:10}}
       {...props}
   >
-      <Text style={{fontSize:16, color:'white'}}>Skip</Text>
+      <Text style={{fontSize:14, color:'white'}}>Skip</Text>
   </TouchableOpacity>
 );
 
@@ -17,7 +17,7 @@ const Next = ({...props}) => (
       style={{marginHorizontal:10}}
       {...props}
   >
-      <Text style={{fontSize:16, color:'#FFFFFF'}}>Next</Text>
+      <Text style={{fontSize:14, color:'#FFFFFF'}}>Next</Text>
   </TouchableOpacity>
 );
 
@@ -26,7 +26,7 @@ const Done = ({...props}) => (
       style={{marginHorizontal:10}}
       {...props}
   >
-      <Text style={{fontSize:16, color:'#FFFFFF'}}>Done</Text>
+      <Text style={{fontSize:14, color:'#FFFFFF'}}>Done</Text>
   </TouchableOpacity>
 );
 function OnboardingScreen({navigation}) {
@@ -44,18 +44,18 @@ function OnboardingScreen({navigation}) {
   pages={[
     {
       backgroundColor: '#0C7842',
-      image: <Image style={{ width: 353,
-        height: 660,
-        resizeMode: 'cover', marginTop: 52}} source={require('../assets/onboard1.png')} />,
+      image: <Image style={{ width: '95%',
+        height: '95%',
+         marginTop: 52, borderRadius:20}} source={require('../assets/onboard1.png')} />,
       title: '',
       subtitle: '',
     },
   
     {
       backgroundColor: '#0C7842',
-      image: <Image style={{ width: 353,
-        height: 660,
-        resizeMode: 'cover', marginTop: 52}} source={require('../assets/onboard2.png')} />,
+      image: <Image style={{ width: '95%',
+        height: '95%',
+        marginTop: 52, borderRadius:20}} source={require('../assets/onboard2.png')} />,
       title: '',
       subtitle: '',
     },

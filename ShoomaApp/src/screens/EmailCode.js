@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {SafeAreaView, Text, StyleSheet, View, TouchableOpacity} from 'react-native';
+import { Link } from '@react-navigation/native';
 
 import {
   CodeField,
@@ -17,12 +18,13 @@ const styles = StyleSheet.create({
     height: 40,
     lineHeight: 38,
     fontSize: 24,
-    borderWidth: 2,
-    borderColor: '#00000030',
     textAlign: 'center',
+    borderRadius: 10,
+    backgroundColor:'#0C7842'
   },
   focusCell: {
     borderColor: '#000',
+    color:'white'
   },
 });
 
@@ -44,7 +46,7 @@ const EmailCode = () => {
         justifyContent: 'center'}}>
 
     <SafeAreaView>
-      <Text style={{color:'#0C7842', fontWeight:600, fontSize:20, textAlign: 'center', marginBottom: 15 }}>
+      <Text style={{color:'#0C7842', fontWeight:700, fontSize:20, textAlign: 'center', marginBottom: 15 }}>
  You just received a code!
 </Text>
 <Text style={{color:'black', fontWeight:600, fontSize:15, textAlign: 'center', marginBottom: 20 }}>
@@ -68,12 +70,21 @@ Please enter the 4 digit number you {'\n'}received to verify {'\n'}adelabu.oluro
           </Text>
         )}
       />
-      <Text style={{textAlign:'center', marginTop: 20}}>Didnt receive an email? Resend</Text>
+     
       <TouchableOpacity style={{ backgroundColor: '#0C7842', padding: 12, borderRadius: 20,
-        marginTop:20, width: '100%'}}>
+        marginTop:30, width: '100%'}}>
         <Text style={{ color: '#fff', alignSelf: "center"}}>Verify</Text>
       </TouchableOpacity>
 
+      
+
+      <View style={{flexDirection: "row", marginBottom:30, marginTop:20, alignSelf:'center'}}>
+        <Text>Didnt receive an email? </Text>
+        <Link style={{color:'#0C7842', fontWeight:'bold'}} to={{ screen: 'Login', params: { id: 'log' } }}>
+         Resend
+    </Link>
+       
+    </View> 
     </SafeAreaView>
     
     </View>
