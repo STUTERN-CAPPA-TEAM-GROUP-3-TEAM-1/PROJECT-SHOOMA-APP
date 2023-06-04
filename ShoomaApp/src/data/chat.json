@@ -1,0 +1,77 @@
+{
+  "chat": [
+    {
+      "name": "Ayomide",
+      "avatarurl": "https://www.popsci.com/uploads/2020/01/07/WMD5M52LJFBEBIHNEEABHVB6LA.jpg?auto=webp&width=1440&height=864",
+      "isonline": true,
+      "typing": false,
+      "lastonline": "RN",
+      "unreadmsgs": 2,
+      "lastmsg": "Hey Bro whats up"
+      
+    },
+    {
+      "name": "Jefferson",
+      "avatarurl": "https://t3.ftcdn.net/jpg/03/97/01/50/360_F_397015069_YvoHexqYAKLGdeKNZktvjchm7bkQEsMc.webp",
+      "isonline": false,
+      "typing": true,
+      "lastonline": "1 min ago",
+      "unreadmsgs": 10,
+      "lastmsg": "Yoooooooooo!"
+    },
+    {
+      "name": "Obey",
+      "avatarurl": "https://t3.ftcdn.net/jpg/03/43/55/84/360_F_343558406_tzgulGVRbnvmISA1MjLzxtYlY4nsrPKb.jpg",
+      "isonline": false,
+      "typing": true,
+      "lastonline": "RN",
+      "unreadmsgs": null,
+      "lastmsg": "This is the CV of the person"
+    },
+    {
+      "name": "Mary Daniels",
+      "avatarurl": "https://ichef.bbci.co.uk/news/976/cpsprodpb/154EC/production/_102967278_1f1ecc7c-a677-4e9f-838a-317186227aad.jpg",
+      "isonline": false,
+      "typing": false,
+      "lastonline": "1 min ago",
+      "unreadmsgs": null,
+      "lastmsg": "How are you?"
+    },
+    {
+      "name": "Shawn Jakes",
+      "avatarurl": "https://i.pinimg.com/474x/f6/61/b3/f661b32c8fea97929cdae1a166f73a4a.jpg",
+      "isonline": false,
+      "typing": false,
+      "lastonline": "3 min ago",
+      "unreadmsgs": null,
+      "lastmsg": "Chill dude!!!"
+    },
+    {
+      "name": "Alice Jones",
+      "avatarurl": "https://t4.ftcdn.net/jpg/04/56/72/05/360_F_456720546_8s00A4TP0lYSdcGqHcjlDjFgatdTsF3i.webp",
+      "isonline": true,
+      "typing": false,
+      "lastonline": "RN",
+      "unreadmsgs": null,
+      "lastmsg": "C'mon maaan"
+    },
+    {
+      "name": "Emily Rose",
+      "avatarurl": "https://i0.wp.com/businesselitesafrica.com/wp-content/uploads/2022/05/4f4a7-omoregbe.png?fit=1588%2C933&ssl=1",
+      "isonline": true,
+      "typing": false,
+      "lastonline": "RN",
+      "unreadmsgs": null,
+      "lastmsg": "yo bro"
+    },
+    {
+      "name": "Shawn Jakes",
+      "avatarurl": "https://www.biography.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTE4MDAzNDEwNzkxOTI1MjYy/scarlett-johansson-13671719-1-402.jpg",
+      "isonline": true,
+      "typing": false,
+      "lastonline": "RN",
+      "unreadmsgs": null,
+      "lastmsg": "Hey Bro whats up"
+    }
+  ]
+}

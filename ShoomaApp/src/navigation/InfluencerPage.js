@@ -1,14 +1,12 @@
 import { View, Text, Image, ImageBackground, FlatList, SafeAreaView, ScrollView, Touchable, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Link } from '@react-navigation/native';
 
 
-
-function Home () {
+function InfluencerPage () {
    return (
       <>
-     <View style={{backgroundColor: '#ffffff'}}>
+     
 
       <View>
            <Text style={{textAlign: "center", marginTop:40, fontWeight:'bold'}}>Mary.xo</Text>   
@@ -46,37 +44,38 @@ function Home () {
         <View style={{ alignSelf:"center", marginTop:10}} >
 
          <Text style={{ fontWeight:'bold', marginBottom:10, fontSize:15, textAlign:'center'}}>Mary Magdalene</Text>
-         <Text style={{ fontWeight:'400', fontSize:13, textAlign:'center'}}>UI/UX Designer</Text>
+         <Text style={{ fontWeight:'400', fontSize:13, textAlign:'center'}}>Content Creator</Text>
         </View>
-<View style={{flexDirection:"row", justifyContent:'space-evenly', marginTop:40}}>
+
+        <View>
+        <TouchableOpacity style={{marginTop: 10,width:'65%', alignSelf:'center', backgroundColor:'#DADEDF', padding:8, borderRadius:10, fontSize:8}}> 
+         <Text style={{fontSize:11, textAlign:'center'}}>
+            304K accounts reached in the last 30 days.
+         </Text>
+        </TouchableOpacity>
+        </View>
+<View style={{flexDirection:"row", justifyContent:'space-evenly', marginTop:20}}>
         <TouchableOpacity style={{backgroundColor:'#DADEDF', width: '30%',padding:8, borderRadius:10, fontSize:8}}>
          <Text style={{fontSize:11, textAlign:"center"}}>
-            Edit profile
+            Follow
          </Text>
         </TouchableOpacity>
         <TouchableOpacity style={{backgroundColor:'#DADEDF', width: '30%',padding:8, borderRadius:10, fontSize:8}}>
          <Text style={{fontSize:11, textAlign:"center"}}>
-            Share profile
+            Message
          </Text>
         </TouchableOpacity>
         <TouchableOpacity style={{backgroundColor:'#DADEDF', width: '30%',padding:8, borderRadius:10, fontSize:8}}> 
-        <Link style={{fontSize:11, textAlign:"center"}} to={{ screen: 'InfluencerPage', params: { id: 'influence' } }}>
-      Profile Views
-    </Link>
-      
+         <Text style={{fontSize:11, textAlign:"center"}}>
+            Contact
+         </Text>
         </TouchableOpacity>
 
               </View>
 
-              <View>
-        <TouchableOpacity style={{marginTop: 5,width:'50%', alignSelf:'center', backgroundColor:'#DADEDF', padding:8, borderRadius:10, fontSize:8}}> 
-         <Text style={{fontSize:11, textAlign:'center'}}>
-            View Professional Dashboard
-         </Text>
-        </TouchableOpacity>
-        </View>
+          
 
-        <View style={{flexDirection:"row", justifyContent:'space-evenly', marginTop:10}}>
+        <View style={{flexDirection:"row", justifyContent:'space-evenly', marginTop:20}}>
         <TouchableOpacity >
         <Image
               source={require("../assets/images/pic.png")}
@@ -85,13 +84,13 @@ function Home () {
         </TouchableOpacity>
         <TouchableOpacity >
         <Image
-              source={require("../assets/images/edit.png")}
+              source={require("../assets/icons/video.png")}
               style={{ width: 18, height: 18 }}
               />
         </TouchableOpacity>
         <TouchableOpacity> 
         <Image
-              source={require("../assets/images/download.png")}
+              source={require("../assets/icons/content.png")}
               style={{ width: 16, height: 16}}
               />
         </TouchableOpacity>
@@ -175,14 +174,13 @@ function Home () {
 
               </View>
               </ScrollView>
-              </View>
               </>
       
-           
+      
    
     
     
   );
 };
 
-export default Home;
+export default InfluencerPage;
