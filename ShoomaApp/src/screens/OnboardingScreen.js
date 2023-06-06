@@ -27,7 +27,7 @@ function OnboardingScreen({ navigation }) {
       NextButtonComponent={Next}
       DoneButtonComponent={Done}
       onSkip={() => navigation.navigate("SignUp")}
-      onDone={() => navigation.navigate("SignUp")}
+      onDone={() => navigation.replace("SignUp")}
       pages={[
         {
           backgroundColor: "#0C7842",
