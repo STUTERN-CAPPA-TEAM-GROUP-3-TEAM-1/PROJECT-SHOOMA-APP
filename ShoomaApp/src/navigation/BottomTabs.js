@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import Home from "../navigation/Home";
 import Profile from "../navigation/Profile";
@@ -17,7 +17,8 @@ const BottomTabs = () => {
       initialRouteName="Home"
       screenOptions={{ headerShown: true, tabBarShowLabel: false }}
     >
-      <Tab.Screen style={{backgroundColor: '#F3F3F3'}}
+      <Tab.Screen
+        style={{ backgroundColor: "#F3F3F3" }}
         name="Home"
         component={Home}
         options={{
@@ -36,7 +37,6 @@ const BottomTabs = () => {
                   style={{
                     width: 16,
                     height: 18,
-                    
                   }}
                 />
               </View>
@@ -45,7 +45,7 @@ const BottomTabs = () => {
         }}
       />
 
-<Tab.Screen
+      <Tab.Screen
         name="Search"
         component={Search}
         options={{
@@ -145,7 +145,6 @@ const BottomTabs = () => {
                   style={{
                     width: 20,
                     height: 20,
-                   
                   }}
                 />
               </View>

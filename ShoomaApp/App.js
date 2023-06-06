@@ -1,25 +1,7 @@
-import * as React from 'react';
-import { View, Text } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from "react";
+import "./src/config/firebase";
+import RootNavigation from "./src/navigation";
 
-import AppStack from './src/navigation/AuthStack';
-
-
-
-const Stack = createNativeStackNavigator();
-
-function App() {
-  return (
-    
-    <NavigationContainer>
-      
-      <AppStack/>
-      
-      
-    </NavigationContainer>
-    
-  );
+export default function App() {
+  return <RootNavigation />;
 }
-
-export default App;

@@ -1,34 +1,27 @@
-import * as React from 'react';
-import { View, Text } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from '../navigation/Home';
-import Messaging from '../navigation/Messaging';
-import Post from '../navigation/Post';
-import Profile from '../navigation/Profile';
-import Search from '../navigation/Search';
-import BottomTabs from '../navigation/BottomTabs';
-
+import * as React from "react";
+import { View, Text } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "../navigation/Home";
+import BottomTabs from "../navigation/BottomTabs";
+import InfluencerPage from "../navigation/InfluencerPage";
+import HybridPost from "../navigation/HybridPost";
+import PicturePost from "../navigation/PicturePost";
 
 const Stack = createNativeStackNavigator();
 
-const AppStack =() =>{
+const AppStack = () => {
   return (
-    
-
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-       <Stack.Screen name="BottomTabs" component={BottomTabs} />
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="BottomTabs" component={BottomTabs} />
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Messaging" component={Messaging} />
-        <Stack.Screen name="Search" component={Search} />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="Post" component={Post} />
-       
-        
+        <Stack.Screen name="InfluencerPage" component={InfluencerPage} />
+        <Stack.Screen name="PicturePost" component={PicturePost} />
+        <Stack.Screen name="HybridPost" component={HybridPost} />
       </Stack.Navigator>
-    
-    
+    </NavigationContainer>
   );
-}
+};
 
 export default AppStack;

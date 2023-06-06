@@ -343,7 +343,7 @@ function HybridPost() {
               alignSelf: "center",
             }}
           />
-          <Text style={{ textAlign: "center" }}> Sunmade</Text>
+          <Text style={{ textAlign: "center" }}> Sunmadea</Text>
           <Image
             source={require("../assets/icons/more.png")}
             style={{
