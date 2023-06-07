@@ -11,18 +11,16 @@ import {
   StyleSheet,
   Button,
 } from "react-native";
-
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Link } from "@react-navigation/native";
-import { getAuth, signOut, sendPasswordResetEmail } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 import { useAuthentication } from "../hook/useAuthentication";
 
 const auth = getAuth();
 
-const Profile = () => {
-  const [email] = useState("");
-
+function Profile() {
+  const { user } = useAuthentication();
   function changePassword() {
     sendPasswordResetEmail(auth, email)
       .then(() => {
@@ -34,7 +32,6 @@ const Profile = () => {
         // ..
       });
   }
-
   return (
     <>
       <View
@@ -88,6 +85,8 @@ const Profile = () => {
           borderTopRightRadius: 40,
           borderTopLeftRadius: 40,
           marginTop: 10,
+          borderColor: "#0C7842",
+          borderWidth: 2,
         }}
       >
         <TouchableOpacity
@@ -207,6 +206,6 @@ const Profile = () => {
       </View>
     </>
   );
-};
+}
 
 export default Profile;

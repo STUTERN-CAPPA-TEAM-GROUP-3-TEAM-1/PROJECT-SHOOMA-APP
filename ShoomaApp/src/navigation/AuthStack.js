@@ -5,6 +5,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import OnboardingScreen from "../screens/OnboardingScreen";
 import Login from "../screens/Login";
 import SignUp from "../screens/SignUp";
+import EmailVerify from "../screens/EmailVerify";
+
 import { useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -30,6 +32,7 @@ const AuthStack = () => {
         )}
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="EmailVerify" component={EmailVerify} />
       </Stack.Navigator>
     </NavigationContainer>
   );

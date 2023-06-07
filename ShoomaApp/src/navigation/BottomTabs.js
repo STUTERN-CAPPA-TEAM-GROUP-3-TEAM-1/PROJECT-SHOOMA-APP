@@ -44,33 +44,6 @@ const BottomTabs = () => {
           },
         }}
       />
-      <Tab.Screen
-        name="Messaging"
-        component={Messaging}
-        options={{
-          headerShown: false,
-          tabBarIcon: () => {
-            return (
-              <View
-                style={{
-                  paddingTop: 12,
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Image
-                  source={require("../assets/chat.png")}
-                  style={{
-                    width: 20,
-                    height: 20,
-                    tintColor: "#979797",
-                  }}
-                />
-              </View>
-            );
-          },
-        }}
-      />
 
       <Tab.Screen
         name="Post"
@@ -99,6 +72,7 @@ const BottomTabs = () => {
           },
         }}
       />
+
       <Tab.Screen
         name="Search"
         component={Search}
@@ -115,6 +89,33 @@ const BottomTabs = () => {
               >
                 <Image
                   source={require("../assets/search-icon.png")}
+                  style={{
+                    width: 20,
+                    height: 20,
+                    tintColor: "#979797",
+                  }}
+                />
+              </View>
+            );
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Messaging"
+        component={Messaging}
+        options={{
+          headerShown: false,
+          tabBarIcon: () => {
+            return (
+              <View
+                style={{
+                  paddingTop: 12,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Image
+                  source={require("../assets/chat.png")}
                   style={{
                     width: 20,
                     height: 20,

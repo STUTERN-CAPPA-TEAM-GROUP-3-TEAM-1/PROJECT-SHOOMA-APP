@@ -7,6 +7,9 @@ import BottomTabs from "../navigation/BottomTabs";
 import InfluencerPage from "../navigation/InfluencerPage";
 import HybridPost from "../navigation/HybridPost";
 import PicturePost from "../navigation/PicturePost";
+import Chat from "../navigation/Chat";
+import Messaging from "../navigation/Messaging";
+import FeedItem from "../navigation/FeedItem";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +22,9 @@ const AppStack = () => {
         <Stack.Screen name="InfluencerPage" component={InfluencerPage} />
         <Stack.Screen name="PicturePost" component={PicturePost} />
         <Stack.Screen name="HybridPost" component={HybridPost} />
+        <Stack.Screen name="Chat" component={Chat} />
+        <Stack.Screen name="Messaging" component={Messaging} />
+        <Stack.Screen name="FeedItem" component={FeedItem} />
       </Stack.Navigator>
     </NavigationContainer>
   );

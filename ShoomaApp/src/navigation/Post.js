@@ -209,7 +209,7 @@ function Post() {
           </View>
         </View>
 
-        <Text style={{ fontWeight: 400, marginTop: 10, marginBottom: 10 }} s>
+        <Text style={{ fontWeight: 400, marginTop: 10, marginBottom: 10 }}>
           What's on everyone's mind?
         </Text>
 
@@ -306,13 +306,13 @@ function Post() {
           style={{
             paddingTop: 10,
             flexDirection: "row",
+            marginBottom: 10,
             backgroundColor: "#FAFAFA",
             borderRadius: 10,
             marginRight: 10,
             width: "100%",
             height: 100,
             marginTop: 5,
-            marginBottom: 10,
           }}
         >
           <View style={{ marginRight: 5 }}>
@@ -325,7 +325,7 @@ function Post() {
                 alignSelf: "center",
               }}
             />
-            <Text style={{ textAlign: "center" }}> Sunmadea</Text>
+            <Text style={{ textAlign: "center" }}> Sunmade</Text>
             <Image
               source={require("../assets/icons/more.png")}
               style={{
@@ -351,7 +351,7 @@ function Post() {
               <Text style={{ fontSize: 12 }}>
                 Sometimes we make the process more complicated than we need to.
                 We will never make a journey of a thousand miles by fretting
-                about how long it will take.
+                about how long it will take or how hard it will be.
               </Text>
             </View>
 

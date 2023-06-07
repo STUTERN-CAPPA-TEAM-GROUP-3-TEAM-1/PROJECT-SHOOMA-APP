@@ -221,17 +221,18 @@ const SignUp = () => {
           style={{
             flexDirection: "row",
             alignSelf: "center",
-            marginBottom: 15,
+            marginBottom: 20,
+            fontSize: 18,
           }}
         >
-          <Text>Click </Text>
+          <Text style={{ fontSize: 16 }}>Click </Text>
           <Link
-            style={{ color: "#0C7842", fontWeight: "bold" }}
+            style={{ color: "#0C7842", fontWeight: "bold", fontSize: 16 }}
             to={{ screen: "Login", params: { id: "log" } }}
           >
             next
           </Link>
-          <Text> if you already have an account</Text>
+          <Text style={{ fontSize: 16 }}> if you already have an account</Text>
         </View>
       </View>
     </>

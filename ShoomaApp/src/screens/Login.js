@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/core";
 import { firebase } from "firebase/app";
+import EmailVerify from "../screens/EmailVerify";
 
 import {
   Image,
@@ -104,21 +105,18 @@ const Login = () => {
       </View>
 
       <View style={{ marginLeft: 15, marginRight: 15, marginBottom: 36 }}>
-        <TouchableOpacity
-          onPress={() => {
-            changePassword();
-          }}
-        >
-          <Text
+        <TouchableOpacity>
+          <Link
             style={{
               textAlign: "right",
               fontWeight: "bold",
               color: "#0C7842",
               marginTop: 5,
             }}
+            to={{ screen: "EmailVerify", params: { id: "email" } }}
           >
             Forgot Password?
-          </Text>
+          </Link>
         </TouchableOpacity>
         {
           <Text style={{ color: "red", marginTop: 10 }}>
