@@ -6,7 +6,8 @@ import Profile from "../navigation/Profile";
 import Messaging from "../navigation/Messaging";
 import Search from "../navigation/Search";
 import Post from "../navigation/Post";
-
+import FeedScreen from "../navigation/FeedScreen";
+import Settings from "../navigation/Settings";
 import { Image, View } from "react-native";
 
 const Tab = createBottomTabNavigator();
@@ -46,8 +47,8 @@ const BottomTabs = () => {
       />
 
       <Tab.Screen
-        name="Post"
-        component={Post}
+        name="FeedScreen"
+        component={FeedScreen}
         options={{
           headerShown: false,
           tabBarIcon: () => {
@@ -128,8 +129,8 @@ const BottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Profile"
-        component={Profile}
+        name="Settings"
+        component={Settings}
         options={{
           headerShown: false,
           tabBarIcon: () => {

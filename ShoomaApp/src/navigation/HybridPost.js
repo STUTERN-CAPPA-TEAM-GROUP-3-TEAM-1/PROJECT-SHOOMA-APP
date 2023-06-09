@@ -116,33 +116,33 @@ function HybridPost() {
           >
             <TouchableOpacity
               style={{
-                height: 20,
+                height: 26,
                 backgroundColor: "#rgba(22, 216, 119, 0.1)",
                 marginRight: 5,
                 width: "23%",
                 borderRadius: 3,
-                fontSize: 8,
+                paddingTop: 3,
               }}
             >
               <Link
-                style={{ fontSize: 12, textAlign: "center", color: "#04773E" }}
-                to={{ screen: "Post", params: { id: "influence" } }}
+                style={{ fontSize: 13, textAlign: "center", color: "#04773E" }}
+                to={{ screen: "FeedScreen", params: { id: "influence" } }}
               >
                 Text Posts
               </Link>
             </TouchableOpacity>
             <TouchableOpacity
               style={{
-                height: 20,
+                height: 26,
                 backgroundColor: "#rgba(22, 216, 119, 0.1)",
                 width: "30%",
                 marginRight: 5,
                 borderRadius: 3,
-                fontSize: 8,
+                paddingTop: 3,
               }}
             >
               <Link
-                style={{ fontSize: 12, textAlign: "center", color: "#04773E" }}
+                style={{ fontSize: 13, textAlign: "center", color: "#04773E" }}
                 to={{ screen: "PicturePost", params: { id: "influence" } }}
               >
                 Picture Posts
@@ -150,15 +150,15 @@ function HybridPost() {
             </TouchableOpacity>
             <TouchableOpacity
               style={{
-                height: 20,
+                height: 26,
                 backgroundColor: "#16D877",
                 width: "30%",
                 borderRadius: 3,
-                fontSize: 8,
+                paddingTop: 3,
               }}
             >
               <Link
-                style={{ fontSize: 12, textAlign: "center", color: "white" }}
+                style={{ fontSize: 13, textAlign: "center", color: "white" }}
                 to={{ screen: "HybridPost", params: { id: "influence" } }}
               >
                 Hybrid Posts

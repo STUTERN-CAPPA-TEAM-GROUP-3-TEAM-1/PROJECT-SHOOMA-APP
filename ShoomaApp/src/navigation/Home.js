@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   Button,
+  Share,
 } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
@@ -21,6 +22,19 @@ const auth = getAuth();
 
 function Home() {
   const { user } = useAuthentication();
+  const handleShareProfile = async () => {
+    try {
+      const shareOptions = {
+        message: "Check out my profile!",
+        url: "https://example.com/profile", // Replace with the actual profile URL
+      };
+
+      await Share.share(shareOptions);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <View>
@@ -91,6 +105,7 @@ function Home() {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
+          onPress={handleShareProfile}
           style={{
             backgroundColor: "#DADEDF",
             width: "30%",
@@ -100,7 +115,7 @@ function Home() {
           }}
         >
           <Text style={{ fontSize: 11, textAlign: "center" }}>
-            Share profile
+            Share Profile
           </Text>
         </TouchableOpacity>
         <TouchableOpacity

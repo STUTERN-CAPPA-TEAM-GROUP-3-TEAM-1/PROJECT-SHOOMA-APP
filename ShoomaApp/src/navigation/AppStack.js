@@ -10,7 +10,7 @@ import PicturePost from "../navigation/PicturePost";
 import Chat from "../navigation/Chat";
 import Messaging from "../navigation/Messaging";
 import FeedItem from "../navigation/FeedItem";
-
+import Profile from "../navigation/Profile";
 const Stack = createNativeStackNavigator();
 
 const AppStack = () => {
@@ -25,6 +25,7 @@ const AppStack = () => {
         <Stack.Screen name="Chat" component={Chat} />
         <Stack.Screen name="Messaging" component={Messaging} />
         <Stack.Screen name="FeedItem" component={FeedItem} />
+        <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
   );
