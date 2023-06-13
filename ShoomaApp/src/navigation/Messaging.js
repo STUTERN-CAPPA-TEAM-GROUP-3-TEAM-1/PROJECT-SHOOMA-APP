@@ -88,12 +88,12 @@ const Messaging = ({ navigation }) => {
                       <Image
                         source={{ uri: item.avatarurl }}
                         style={{
-                          width: 62,
-                          height: 63,
+                          width: 50,
+                          height: 51,
                           borderRadius: 20,
                           margin: 5,
                           borderColor: "#0C7842",
-                          borderWidth: 2,
+                          borderWidth: 0,
                         }}
                       />
 
@@ -117,7 +117,7 @@ const Messaging = ({ navigation }) => {
                           >
                             {item.name}
                           </Text>
-                          <Text>{item.lastmsg}</Text>
+                          <Text style={{ fontSize: 12 }}>{item.lastmsg}</Text>
                         </View>
                         <View>
                           {item.lastonline === "RN" ? (

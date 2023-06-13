@@ -14,15 +14,28 @@ import {
   ImageBackground,
 } from "react-native";
 import { Link } from "@react-navigation/native";
+import { useState } from "react";
+import Icon from "react-native-vector-icons/Ionicons";
 
 function HybridPost() {
+  const [isLiked, setIsLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(0);
+
+  const handleLike = () => {
+    if (isLiked) {
+      setLikeCount(likeCount - 1);
+    } else {
+      setLikeCount(likeCount + 1);
+    }
+    setIsLiked(!isLiked);
+  };
   return (
     <>
-      <View style={{ marginLeft: 10 }}>
+      <View style={{ marginLeft: 10, marginTop: 30 }}>
         <View style={{ marginTop: 30 }}>
           <Image
             source={require("../assets/images/post_logo.png")}
-            style={{ width: 83, height: 18, borderRadius: 7 }}
+            style={{ width: 83, height: 18, marginLeft: 5 }}
           />
         </View>
 
@@ -126,7 +139,7 @@ function HybridPost() {
             >
               <Link
                 style={{ fontSize: 13, textAlign: "center", color: "#04773E" }}
-                to={{ screen: "FeedScreen", params: { id: "influence" } }}
+                to={{ screen: "Post", params: { id: "influence" } }}
               >
                 Text Posts
               </Link>
@@ -151,7 +164,7 @@ function HybridPost() {
             <TouchableOpacity
               style={{
                 height: 26,
-                backgroundColor: "#16D877",
+                backgroundColor: "#0C7842",
                 width: "30%",
                 borderRadius: 3,
                 paddingTop: 3,
@@ -184,38 +197,59 @@ function HybridPost() {
               style={{ width: 342, height: 243, borderRadius: 10 }}
             />
 
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-evenly",
-                marginTop: 10,
-              }}
-            >
-              <TouchableOpacity style={{}}>
-                <Image
-                  source={require("../assets/icons/like.png")}
-                  style={{ width: 11, height: 9 }}
-                />
-              </TouchableOpacity>
+            <View style={[styles.row, { marginTop: 10 }]}>
+              <View style={styles.rowAtt}>
+                <Icon name="heart-outline" size={20} color={"#0C7842"} />
 
-              <TouchableOpacity>
-                <Image
-                  source={require("../assets/icons/message.png")}
-                  style={{ width: 11, height: 9 }}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Image
-                  source={require("../assets/icons/posticon.png")}
-                  style={{ width: 11, height: 9 }}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Image
-                  source={require("../assets/icons/share.png")}
-                  style={{ width: 11, height: 9 }}
-                />
-              </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={handleLike}
+                  style={styles.likeButton}
+                >
+                  <Text
+                    style={{
+                      marginTop: 2,
+                      marginLeft: 5,
+                      fontWeight: "bold",
+                      color: "#0C7842",
+                      fontSize: 12,
+                    }}
+                  >
+                    {isLiked ? "Unlike" : "Like"}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.rowAtt}>
+                <Icon name="chatbubble-outline" size={20} color={"#0C7842"} />
+                <Text
+                  style={[
+                    {
+                      marginTop: 2,
+                      marginLeft: 5,
+                      fontWeight: "bold",
+                      color: "#0C7842",
+                      fontSize: 12,
+                    },
+                  ]}
+                >
+                  Saved
+                </Text>
+              </View>
+              <View style={styles.rowAtt}>
+                <Icon name="arrow-redo-outline" size={20} color={"#0C7842"} />
+                <Text
+                  style={[
+                    {
+                      marginTop: 2,
+                      marginLeft: 5,
+                      fontWeight: "bold",
+                      color: "#0C7842",
+                      fontSize: 12,
+                    },
+                  ]}
+                >
+                  Share
+                </Text>
+              </View>
             </View>
           </TouchableOpacity>
         </View>
@@ -284,38 +318,55 @@ function HybridPost() {
             </Text>
           </View>
 
-          <View
-            style={{
-              flexDirection: "row",
-              marginLeft: 150,
-              justifyContent: "space-between",
-            }}
-          >
-            <TouchableOpacity style={{}}>
-              <Image
-                source={require("../assets/icons/like.png")}
-                style={{ width: 11, height: 9 }}
-              />
-            </TouchableOpacity>
+          <View style={[styles.row]}>
+            <View style={styles.rowAtt}>
+              <Icon name="heart-outline" size={15} color={"#0C7842"} />
 
-            <TouchableOpacity>
-              <Image
-                source={require("../assets/icons/message.png")}
-                style={{ width: 11, height: 9 }}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image
-                source={require("../assets/icons/posticon.png")}
-                style={{ width: 11, height: 9 }}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image
-                source={require("../assets/icons/share.png")}
-                style={{ width: 11, height: 9 }}
-              />
-            </TouchableOpacity>
+              <TouchableOpacity onPress={handleLike} style={styles.likeButton}>
+                <Text
+                  style={{
+                    marginTop: 2,
+                    marginLeft: 5,
+                    fontWeight: "bold",
+                    color: "#0C7842",
+                    fontSize: 10,
+                  }}
+                >
+                  {isLiked ? "Unlike" : "Like"}
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.rowAtt}>
+              <Text
+                style={[
+                  {
+                    marginTop: 2,
+                    marginLeft: 5,
+                    fontWeight: "bold",
+                    color: "#0C7842",
+                    fontSize: 10,
+                  },
+                ]}
+              >
+                Comment
+              </Text>
+            </View>
+            <View style={styles.rowAtt}>
+              <Icon name="arrow-redo-outline" size={15} color={"#0C7842"} />
+              <Text
+                style={[
+                  {
+                    marginTop: 2,
+                    marginLeft: 5,
+                    fontWeight: "bold",
+                    color: "#0C7842",
+                    fontSize: 10,
+                  },
+                ]}
+              >
+                Share
+              </Text>
+            </View>
           </View>
         </View>
       </View>
@@ -373,38 +424,55 @@ function HybridPost() {
             </Text>
           </View>
 
-          <View
-            style={{
-              flexDirection: "row",
-              marginLeft: 150,
-              justifyContent: "space-between",
-            }}
-          >
-            <TouchableOpacity style={{}}>
-              <Image
-                source={require("../assets/icons/like.png")}
-                style={{ width: 11, height: 9 }}
-              />
-            </TouchableOpacity>
+          <View style={[styles.row]}>
+            <View style={styles.rowAtt}>
+              <Icon name="heart-outline" size={15} color={"#0C7842"} />
 
-            <TouchableOpacity>
-              <Image
-                source={require("../assets/icons/message.png")}
-                style={{ width: 11, height: 9 }}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image
-                source={require("../assets/icons/posticon.png")}
-                style={{ width: 11, height: 9 }}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image
-                source={require("../assets/icons/share.png")}
-                style={{ width: 11, height: 9 }}
-              />
-            </TouchableOpacity>
+              <TouchableOpacity onPress={handleLike} style={styles.likeButton}>
+                <Text
+                  style={{
+                    marginTop: 2,
+                    marginLeft: 5,
+                    fontWeight: "bold",
+                    color: "#0C7842",
+                    fontSize: 10,
+                  }}
+                >
+                  {isLiked ? "Unlike" : "Like"}
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.rowAtt}>
+              <Text
+                style={[
+                  {
+                    marginTop: 2,
+                    marginLeft: 5,
+                    fontWeight: "bold",
+                    color: "#0C7842",
+                    fontSize: 10,
+                  },
+                ]}
+              >
+                Comment
+              </Text>
+            </View>
+            <View style={styles.rowAtt}>
+              <Icon name="arrow-redo-outline" size={15} color={"#0C7842"} />
+              <Text
+                style={[
+                  {
+                    marginTop: 2,
+                    marginLeft: 5,
+                    fontWeight: "bold",
+                    color: "#0C7842",
+                    fontSize: 10,
+                  },
+                ]}
+              >
+                Share
+              </Text>
+            </View>
           </View>
         </View>
       </View>
@@ -413,3 +481,41 @@ function HybridPost() {
 }
 
 export default HybridPost;
+const styles = StyleSheet.create({
+  feedItem: {
+    width: "100%",
+    marginBottom: 30,
+  },
+
+  feedItemHeader: {
+    padding: 10,
+    paddingHorizontal: 30,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+
+  avatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 30,
+    borderColor: "#0C7842",
+    borderWidth: 2,
+  },
+
+  postImage: {
+    alignSelf: "center",
+    width: "98%",
+    borderRadius: 20,
+    height: 190,
+  },
+
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+
+  rowAtt: {
+    flexDirection: "row",
+  },
+});

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Image,
   Text,
@@ -13,8 +13,49 @@ import {
   Linking,
 } from "react-native";
 import { Link } from "@react-navigation/native";
+import Icon from "react-native-vector-icons/Ionicons";
 
 function Post() {
+  const [postContent, setPostContent] = useState("");
+  const [posts, setPosts] = useState([]);
+
+  const handleCreatePost = () => {
+    const newPost = {
+      id: Date.now().toString(),
+      content: postContent,
+      likes: 0,
+      comments: [],
+    };
+
+    setPosts([newPost, ...posts]);
+
+    setPostContent("");
+  };
+
+  const handleLikePost = (postId) => {
+    setPosts((prevPosts) =>
+      prevPosts.map((post) =>
+        post.id === postId ? { ...post, likes: post.likes + 1 } : post
+      )
+    );
+  };
+
+  const handleCommentPost = (postId, comment) => {
+    setPosts((prevPosts) =>
+      prevPosts.map((post) =>
+        post.id === postId
+          ? { ...post, comments: [...post.comments, comment] }
+          : post
+      )
+    );
+  };
+
+  const handleSharePost = (postId) => {
+    const postToShare = posts.find((post) => post.id === postId);
+    // Perform share functionality (e.g., share via social media)
+    console.log("Share post:", postToShare);
+  };
+
   return (
     <>
       <View style={{ marginLeft: 15, marginRight: 15 }}>
@@ -115,32 +156,34 @@ function Post() {
           >
             <TouchableOpacity
               style={{
-                height: 20,
-                backgroundColor: "#16D877",
+                height: 26,
+                backgroundColor: "#0C7842",
                 marginRight: 5,
                 width: "23%",
                 borderRadius: 3,
                 fontSize: 8,
+                paddingTop: 3,
               }}
             >
               <Text
-                style={{ fontSize: 12, textAlign: "center", color: "white" }}
+                style={{ fontSize: 13, textAlign: "center", color: "white" }}
               >
                 Text Post
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{
-                height: 20,
+                height: 26,
                 backgroundColor: "#rgba(22, 216, 119, 0.1)",
                 width: "30%",
                 marginRight: 5,
                 borderRadius: 3,
                 fontSize: 8,
+                paddingTop: 3,
               }}
             >
               <Link
-                style={{ fontSize: 12, textAlign: "center", color: "#04773E" }}
+                style={{ fontSize: 13, textAlign: "center", color: "#04773E" }}
                 to={{ screen: "PicturePost", params: { id: "influence" } }}
               >
                 Picture Posts
@@ -148,15 +191,16 @@ function Post() {
             </TouchableOpacity>
             <TouchableOpacity
               style={{
-                height: 20,
+                height: 26,
                 backgroundColor: "#rgba(22, 216, 119, 0.1)",
                 width: "30%",
                 borderRadius: 3,
                 fontSize: 8,
+                paddingTop: 3,
               }}
             >
               <Link
-                style={{ fontSize: 12, textAlign: "center", color: "#04773E" }}
+                style={{ fontSize: 13, textAlign: "center", color: "#04773E" }}
                 to={{ screen: "HybridPost", params: { id: "influence" } }}
               >
                 Hybrid Posts
@@ -266,37 +310,17 @@ function Post() {
               </Text>
             </View>
 
-            <View
-              style={{
-                flexDirection: "row",
-                marginLeft: 150,
-                justifyContent: "space-between",
-              }}
-            >
-              <TouchableOpacity style={{}}>
-                <Image
-                  source={require("../assets/icons/like.png")}
-                  style={{ width: 11, height: 9 }}
-                />
+            <View style={styles.actionsContainer}>
+              <TouchableOpacity style={{ marginRight: 8 }}>
+                <Icon name="heart-outline" size={15} color={"#0C7842"} />
+                <Text style={{ fontSize: 10 }}> </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity>
-                <Image
-                  source={require("../assets/icons/message.png")}
-                  style={{ width: 11, height: 9 }}
-                />
+              <TouchableOpacity style={{ marginRight: 8 }}>
+                <Icon name="chatbubble-outline" size={15} color={"#0C7842"} />
               </TouchableOpacity>
               <TouchableOpacity>
-                <Image
-                  source={require("../assets/icons/posticon.png")}
-                  style={{ width: 11, height: 9 }}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Image
-                  source={require("../assets/icons/share.png")}
-                  style={{ width: 11, height: 9 }}
-                />
+                <Icon name="arrow-redo-outline" size={15} color={"#0C7842"} />
               </TouchableOpacity>
             </View>
           </View>
@@ -311,7 +335,7 @@ function Post() {
             borderRadius: 10,
             marginRight: 10,
             width: "100%",
-            height: 100,
+            height: 120,
             marginTop: 5,
           }}
         >
@@ -355,37 +379,17 @@ function Post() {
               </Text>
             </View>
 
-            <View
-              style={{
-                flexDirection: "row",
-                marginLeft: 150,
-                justifyContent: "space-between",
-              }}
-            >
-              <TouchableOpacity style={{}}>
-                <Image
-                  source={require("../assets/icons/like.png")}
-                  style={{ width: 11, height: 9 }}
-                />
+            <View style={styles.actionsContainer}>
+              <TouchableOpacity style={{ marginRight: 8 }}>
+                <Icon name="heart-outline" size={15} color={"#0C7842"} />
+                <Text style={{ fontSize: 10 }}> </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity>
-                <Image
-                  source={require("../assets/icons/message.png")}
-                  style={{ width: 11, height: 9 }}
-                />
+              <TouchableOpacity style={{ marginRight: 8 }}>
+                <Icon name="chatbubble-outline" size={15} color={"#0C7842"} />
               </TouchableOpacity>
               <TouchableOpacity>
-                <Image
-                  source={require("../assets/icons/posticon.png")}
-                  style={{ width: 11, height: 9 }}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Image
-                  source={require("../assets/icons/share.png")}
-                  style={{ width: 11, height: 9 }}
-                />
+                <Icon name="arrow-redo-outline" size={15} color={"#0C7842"} />
               </TouchableOpacity>
             </View>
           </View>
@@ -443,37 +447,17 @@ function Post() {
               </Text>
             </View>
 
-            <View
-              style={{
-                flexDirection: "row",
-                marginLeft: 150,
-                justifyContent: "space-between",
-              }}
-            >
-              <TouchableOpacity style={{}}>
-                <Image
-                  source={require("../assets/icons/like.png")}
-                  style={{ width: 11, height: 9 }}
-                />
+            <View style={styles.actionsContainer}>
+              <TouchableOpacity style={{ marginRight: 8 }}>
+                <Icon name="heart-outline" size={15} color={"#0C7842"} />
+                <Text style={{ fontSize: 10 }}> </Text>
               </TouchableOpacity>
 
-              <TouchableOpacity>
-                <Image
-                  source={require("../assets/icons/message.png")}
-                  style={{ width: 11, height: 9 }}
-                />
+              <TouchableOpacity style={{ marginRight: 8 }}>
+                <Icon name="chatbubble-outline" size={15} color={"#0C7842"} />
               </TouchableOpacity>
               <TouchableOpacity>
-                <Image
-                  source={require("../assets/icons/posticon.png")}
-                  style={{ width: 11, height: 9 }}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Image
-                  source={require("../assets/icons/share.png")}
-                  style={{ width: 11, height: 9 }}
-                />
+                <Icon name="arrow-redo-outline" size={15} color={"#0C7842"} />
               </TouchableOpacity>
             </View>
           </View>
@@ -483,4 +467,29 @@ function Post() {
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+  },
+  input: {
+    height: 120,
+    borderColor: "#ccc",
+    borderWidth: 1,
+    marginBottom: 16,
+    paddingHorizontal: 8,
+  },
+  postContainer: {
+    borderColor: "#ccc",
+    padding: 8,
+  },
+  postContent: {
+    fontSize: 13,
+    marginLeft: 8,
+  },
+  actionsContainer: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+  },
+});
 export default Post;

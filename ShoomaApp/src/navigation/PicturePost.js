@@ -9,7 +9,7 @@ import {
   TextInput,
   ScrollView,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "@react-navigation/native";
 
 import Icon from "react-native-vector-icons/Ionicons";
@@ -20,10 +20,10 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const PicturePost = () => {
   return (
     <>
-      <SafeAreaView>
+      <SafeAreaView style={{ marginTop: 30 }}>
         <Image
           source={require("../assets/images/post_logo.png")}
-          style={{ width: 83, height: 18, borderRadius: 7 }}
+          style={{ width: 83, height: 18, marginLeft: 5 }}
         />
 
         <ScrollView horizontal={true}>
@@ -121,7 +121,7 @@ const PicturePost = () => {
           >
             <Link
               style={{ fontSize: 13, textAlign: "center", color: "#04773E" }}
-              to={{ screen: "FeedScreen", params: { id: "influence" } }}
+              to={{ screen: "Post", params: { id: "influence" } }}
             >
               Text Posts
             </Link>
@@ -129,7 +129,7 @@ const PicturePost = () => {
           <TouchableOpacity
             style={{
               height: 26,
-              backgroundColor: "#16D877",
+              backgroundColor: "#0C7842",
               width: "30%",
               marginRight: 5,
               borderRadius: 3,
@@ -164,7 +164,10 @@ const PicturePost = () => {
         <View style={styles.container}>
           <FlatList
             data={feeds.feed}
-            contentContainerStyle={{ paddingBottom: 100 }}
+            contentContainerStyle={{
+              paddingBottom: 100,
+              backgroundColor: "white",
+            }}
             renderItem={({ item }) => <FeedItem data={item} />}
           />
         </View>
@@ -178,7 +181,7 @@ export default PicturePost;
 const styles = StyleSheet.create({
   container: {
     height: Dimensions.get("screen").height,
-    backgroundColor: "#ffffff",
+
     marginTop: 10,
   },
 
@@ -190,5 +193,29 @@ const styles = StyleSheet.create({
 
     borderBottomEndRadius: 20,
     borderBottomStartRadius: 20,
+    postContainer: {
+      padding: 16,
+      backgroundColor: "#fff",
+      marginBottom: 16,
+    },
+    postText: {
+      fontSize: 16,
+      marginBottom: 8,
+    },
+    likeButton: {
+      backgroundColor: "#2196F3",
+      padding: 8,
+      borderRadius: 4,
+      alignSelf: "flex-start",
+    },
+    likeButtonText: {
+      color: "#fff",
+      fontSize: 14,
+      fontWeight: "bold",
+    },
+    likeCountText: {
+      fontSize: 14,
+      marginTop: 8,
+    },
   },
 });

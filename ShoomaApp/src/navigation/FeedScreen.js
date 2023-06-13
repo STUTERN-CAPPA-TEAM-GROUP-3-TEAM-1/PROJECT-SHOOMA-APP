@@ -58,11 +58,11 @@ const FeedScreen = () => {
 
   return (
     <>
-      <SafeAreaView>
+      <SafeAreaView style={{ backgroundColor: "white" }}>
         <View style={{ marginTop: 30 }}>
           <Image
             source={require("../assets/images/post_logo.png")}
-            style={{ width: 83, height: 18, borderRadius: 7 }}
+            style={{ width: 83, height: 18, marginLeft: 5 }}
           />
         </View>
         <ScrollView horizontal={true}>
@@ -151,7 +151,7 @@ const FeedScreen = () => {
           <TouchableOpacity
             style={{
               height: 26,
-              backgroundColor: "#16D877",
+              backgroundColor: "#0C7842",
               marginRight: 5,
               width: "23%",
               borderRadius: 3,
@@ -204,10 +204,12 @@ const FeedScreen = () => {
           style={{
             backgroundColor: "#FAFAFA",
             borderRadius: 10,
-            marginRight: 10,
-            width: "100%",
+
+            width: "97%",
             height: 140,
             marginTop: 10,
+            marginLeft: 5,
+            marginRight: 20,
           }}
         >
           <View style={{ flexDirection: "row", marginTop: 5 }}>
@@ -237,7 +239,6 @@ const FeedScreen = () => {
               marginLeft: 240,
               marginTop: 40,
             }}
-            onPress={handleCreatePost}
           >
             <Text style={{ color: "white", textAlign: "center" }}> Post</Text>
           </TouchableOpacity>
@@ -247,39 +248,192 @@ const FeedScreen = () => {
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <View style={styles.postContainer}>
-              <Text style={styles.postContent}>{item.content}</Text>
-              <View style={styles.actionsContainer}>
-                <TouchableOpacity onPress={() => handleLikePost(item.id)}>
-                  <Icon name="heart-outline" size={25} color={"#0C7842"} />
-                  <Text>{`Likes (${item.likes})`} </Text>
-                </TouchableOpacity>
+              <Text
+                style={{ fontWeight: 400, marginTop: 10, marginBottom: 10 }}
+              >
+                What's on everyone's mind?
+              </Text>
 
-                <TouchableOpacity
-                  onPress={() => handleCommentPost(item.id, "New comment")}
-                >
-                  <Icon name="chatbubble-outline" size={25} color={"#0C7842"} />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => handleSharePost(item.id)}>
-                  <Icon name="arrow-redo-outline" size={25} color={"#0C7842"} />
-                </TouchableOpacity>
+              <View
+                style={{
+                  paddingTop: 10,
+                  flexDirection: "row",
+                  backgroundColor: "#FAFAFA",
+                  borderRadius: 10,
+                  marginRight: 10,
+                  width: "100%",
+                  height: 100,
+                  marginTop: 5,
+                  marginBottom: 10,
+                }}
+              >
+                <View style={{ marginRight: 5 }}>
+                  <Image
+                    source={require("../assets/icons/mindpic1.png")}
+                    style={{
+                      width: 33,
+                      height: 33,
+                      marginBottom: 5,
+                      alignSelf: "center",
+                    }}
+                  />
+                  <Text style={{ textAlign: "center" }}> Klesanmi.a</Text>
+                  <Image
+                    source={require("../assets/icons/more.png")}
+                    style={{
+                      width: 20,
+                      height: 4,
+                      marginTop: 15,
+                      alignSelf: "center",
+                    }}
+                  />
+                </View>
+
+                <View
+                  style={{
+                    height: "80%",
+                    width: 1,
+                    backgroundColor: "#909090",
+                    marginRight: 5,
+                  }}
+                ></View>
+
+                <View style={{ width: "75%" }}>
+                  <View style={{ marginBottom: 10 }}>
+                    <Text style={{ fontSize: 12 }}>
+                      Time is too slow for those who wait, too swift for those
+                      who fear, too long for those who grieve, too short for
+                      those who rejoice, but for those who love, time is
+                      eternity.
+                    </Text>
+                  </View>
+
+                  <View style={styles.actionsContainer}>
+                    <TouchableOpacity
+                      onPress={() => handleLikePost(item.id)}
+                      style={{ marginRight: 8 }}
+                    >
+                      <Icon name="heart-outline" size={15} color={"#0C7842"} />
+                      <Text style={{ fontSize: 10 }}>{`(${item.likes})`} </Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                      onPress={() => handleCommentPost(item.id, "comment")}
+                      style={{ marginRight: 8 }}
+                    >
+                      <Icon
+                        name="chatbubble-outline"
+                        size={15}
+                        color={"#0C7842"}
+                      />
+                      {item.comments.map((comment, index) => (
+                        <Text style={{ fontSize: 10 }} key={index}>
+                          {comment}
+                        </Text>
+                      ))}
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => handleSharePost(item.id)}>
+                      <Icon
+                        name="arrow-redo-outline"
+                        size={15}
+                        color={"#0C7842"}
+                      />
+                    </TouchableOpacity>
+                  </View>
+                </View>
               </View>
-              <View>
-                {item.comments.map((comment, index) => (
-                  <Text key={index}>{comment}</Text>
-                ))}
+
+              <View
+                style={{
+                  paddingTop: 10,
+                  flexDirection: "row",
+                  marginBottom: 10,
+                  backgroundColor: "#FAFAFA",
+                  borderRadius: 10,
+                  marginRight: 10,
+                  width: "100%",
+                  height: 100,
+                  marginTop: 5,
+                }}
+              >
+                <View style={{ marginRight: 5 }}>
+                  <Image
+                    source={require("../assets/images/postpic1.png")}
+                    style={{
+                      width: 33,
+                      height: 33,
+                      marginBottom: 5,
+                      alignSelf: "center",
+                    }}
+                  />
+                  <Text style={{ textAlign: "center" }}> Sunmade</Text>
+                  <Image
+                    source={require("../assets/icons/more.png")}
+                    style={{
+                      width: 20,
+                      height: 4,
+                      marginTop: 15,
+                      alignSelf: "center",
+                    }}
+                  />
+                </View>
+
+                <View
+                  style={{
+                    height: "80%",
+                    width: 1,
+                    backgroundColor: "#909090",
+                    marginRight: 5,
+                  }}
+                ></View>
+
+                <View style={{ width: "75%" }}>
+                  <View style={{ marginBottom: 10 }}>
+                    <Text style={{ fontSize: 12 }}>
+                      Sometimes we make the process more complicated than we
+                      need to. We will never make a journey of a thousand miles
+                      by fretting about how long it will take or how hard it
+                      will be.
+                    </Text>
+                  </View>
+
+                  <View style={styles.actionsContainer}>
+                    <TouchableOpacity
+                      onPress={() => handleLikePost(item.id)}
+                      style={{ marginRight: 8 }}
+                    >
+                      <Icon name="heart-outline" size={15} color={"#0C7842"} />
+                      <Text style={{ fontSize: 10 }}>{`(${item.likes})`} </Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                      onPress={() => handleCommentPost(item.id, "comment")}
+                      style={{ marginRight: 8 }}
+                    >
+                      <Icon
+                        name="chatbubble-outline"
+                        size={15}
+                        color={"#0C7842"}
+                      />
+                      {item.comments.map((comment, index) => (
+                        <Text style={{ fontSize: 10 }} key={index}>
+                          {comment}
+                        </Text>
+                      ))}
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => handleSharePost(item.id)}>
+                      <Icon
+                        name="arrow-redo-outline"
+                        size={15}
+                        color={"#0C7842"}
+                      />
+                    </TouchableOpacity>
+                  </View>
+                </View>
               </View>
             </View>
           )}
         />
-
-        <View style={styles.container}>
-          {/* Render the list of posts */}
-          {posts.map((post) => (
-            <View key={post.id} style={styles.postContainer}>
-              <Text>{post.content}</Text>
-            </View>
-          ))}
-        </View>
       </SafeAreaView>
     </>
   );
@@ -298,18 +452,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   postContainer: {
-    borderWidth: 1,
     borderColor: "#ccc",
     padding: 8,
-    marginBottom: 8,
   },
   postContent: {
-    fontSize: 16,
+    fontSize: 13,
+    marginLeft: 8,
   },
   actionsContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: 8,
+    justifyContent: "flex-end",
   },
 });
 

@@ -46,7 +46,7 @@ const Chat = () => {
             name="send-circle"
             style={{ marginBottom: 5, marginRight: 5 }}
             size={32}
-            color="#2e64e5"
+            color="#0C7842"
           />
         </View>
       </Send>
@@ -59,7 +59,7 @@ const Chat = () => {
         {...props}
         wrapperStyle={{
           right: {
-            backgroundColor: "#2e64e5",
+            backgroundColor: "#0C7842",
           },
         }}
         textStyle={{

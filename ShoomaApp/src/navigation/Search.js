@@ -1,101 +1,73 @@
 import React, { useState } from "react";
 import {
   View,
-  TextInput,
-  Button,
-  FlatList,
-  StyleSheet,
   Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  FlatList,
+  Image,
 } from "react-native";
 
 const Search = () => {
-  const [postContent, setPostContent] = useState("");
-  const [posts, setPosts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredPosts, setFilteredPosts] = useState([]);
-
-  const handleCreatePost = () => {
-    const newPost = {
-      id: Date.now().toString(),
-      content: postContent,
-      likes: 0,
-      comments: [],
-    };
-
-    setPosts([newPost, ...posts]);
-    setFilteredPosts([newPost, ...filteredPosts]);
-
-    setPostContent("");
-  };
+  const [images, setImages] = useState([]);
 
   const handleSearch = () => {
-    const filtered = posts.filter((post) =>
-      post.content.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setFilteredPosts(filtered);
+    fetchImages();
   };
 
-  const handleLikePost = (postId) => {
-    setPosts((prevPosts) =>
-      prevPosts.map((post) =>
-        post.id === postId ? { ...post, likes: post.likes + 1 } : post
-      )
+  const fetchImages = async () => {
+    const response = await fetch(
+      `https://api.unsplash.com/photos/random?count=20&query=${searchQuery}&client_id=Z-Cj-v0BtWd-MxMm7Y6duuJPCGpM8FEpFBKeAfRW3cM`
     );
+    const data = await response.json();
+    setImages(data);
   };
 
-  const handleCommentPost = (postId, comment) => {
-    setPosts((prevPosts) =>
-      prevPosts.map((post) =>
-        post.id === postId
-          ? { ...post, comments: [...post.comments, comment] }
-          : post
-      )
-    );
-  };
+  const renderItem = ({ item }) => (
+    <Image style={styles.image} source={{ uri: item.urls.small }} />
+  );
 
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="Enter your post"
-        value={postContent}
-        onChangeText={setPostContent}
-        multiline={true}
-        numberOfLines={4}
-      />
-      <Button title="Create Post" onPress={handleCreatePost} />
+      <View
+        style={{
+          paddingLeft: 5,
 
-      <TextInput
-        style={styles.input}
-        placeholder="Search posts"
-        value={searchQuery}
-        onChangeText={setSearchQuery}
-      />
-      <Button title="Search" onPress={handleSearch} />
+          flexDirection: "row",
+          height: 44,
+
+          backgroundColor: "#EDEDED",
+          borderRadius: 5,
+          marginBottom: 10,
+        }}
+      >
+        <Image
+          source={require("../assets/icons/searchicon.png")}
+          style={{ width: 15, height: 15, alignSelf: "center" }}
+        />
+        <TextInput
+          style={{
+            height: 40,
+            borderColor: "gray",
+
+            paddingHorizontal: 8,
+            borderRadius: 5,
+            backgroundColor: "#EDEDED",
+          }}
+          placeholder="Search"
+          value={searchQuery}
+          onChangeText={(text) => setSearchQuery(text)}
+          onEndEditing={handleSearch}
+        />
+      </View>
 
       <FlatList
-        data={filteredPosts}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.postContainer}>
-            <Text style={styles.postContent}>{item.content}</Text>
-            <View style={styles.actionsContainer}>
-              <Button
-                title={`Like (${item.likes})`}
-                onPress={() => handleLikePost(item.id)}
-              />
-              <Button
-                title="Comment"
-                onPress={() => handleCommentPost(item.id, "New comment")}
-              />
-            </View>
-            <View>
-              {item.comments.map((comment, index) => (
-                <Text key={index}>{comment}</Text>
-              ))}
-            </View>
-          </View>
-        )}
+        data={images}
+        numColumns={2}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={renderItem}
       />
     </View>
   );
@@ -105,27 +77,29 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+    backgroundColor: "#fff",
+    marginTop: 30,
   },
-  input: {
-    height: 40,
-    borderColor: "#ccc",
-    borderWidth: 1,
+  heading: {
+    fontSize: 24,
+    fontWeight: "bold",
     marginBottom: 16,
-    paddingHorizontal: 8,
   },
-  postContainer: {
-    borderWidth: 1,
-    borderColor: "#ccc",
-    padding: 8,
+  searchInput: {
+    height: 40,
+    borderColor: "gray",
+
     marginBottom: 8,
+    paddingHorizontal: 8,
+    borderRadius: 5,
+    backgroundColor: "#EDEDED",
   },
-  postContent: {
-    fontSize: 16,
-  },
-  actionsContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: 8,
+  image: {
+    width: "50%",
+    aspectRatio: 1,
+    marginBottom: 5,
+    borderRadius: 8,
+    marginRight: 2,
   },
 });
 

@@ -45,35 +45,6 @@ const BottomTabs = () => {
           },
         }}
       />
-
-      <Tab.Screen
-        name="FeedScreen"
-        component={FeedScreen}
-        options={{
-          headerShown: false,
-          tabBarIcon: () => {
-            return (
-              <View
-                style={{
-                  paddingTop: 12,
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Image
-                  source={require("../assets/plus.png")}
-                  style={{
-                    width: 20,
-                    height: 20,
-                    tintColor: "#979797",
-                  }}
-                />
-              </View>
-            );
-          },
-        }}
-      />
-
       <Tab.Screen
         name="Search"
         component={Search}
@@ -101,6 +72,34 @@ const BottomTabs = () => {
           },
         }}
       />
+      <Tab.Screen
+        name="Post"
+        component={Post}
+        options={{
+          headerShown: false,
+          tabBarIcon: () => {
+            return (
+              <View
+                style={{
+                  paddingTop: 12,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Image
+                  source={require("../assets/plus.png")}
+                  style={{
+                    width: 20,
+                    height: 20,
+                    tintColor: "#979797",
+                  }}
+                />
+              </View>
+            );
+          },
+        }}
+      />
+
       <Tab.Screen
         name="Messaging"
         component={Messaging}
