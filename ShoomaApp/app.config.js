@@ -23,15 +23,6 @@ export default {
         foregroundImage: "./src/assets/adaptive-icon.png",
         backgroundColor: "#ffffff",
       },
-
-      plugins: [
-        [
-          "expo-camera",
-          {
-            cameraPermission: "Allow $(PRODUCT_NAME) to access your camera.",
-          },
-        ],
-      ],
     },
     web: {
       favicon: "./src/assets/favicon.png",
