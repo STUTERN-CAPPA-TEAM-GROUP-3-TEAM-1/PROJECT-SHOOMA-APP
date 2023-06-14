@@ -48,7 +48,7 @@ const FeedItem = (props) => {
           style={[styles.row, { marginTop: 5, marginLeft: 5, marginRight: 5 }]}
         >
           <View style={styles.rowAtt}>
-            <Icon name="heart-outline" size={15} color={"#0C7842"} />
+            <Icon name="heart-outline" size={15} color={"#ACACAC"} />
 
             <TouchableOpacity onPress={handleLike} style={styles.likeButton}>
               <Text
@@ -56,7 +56,7 @@ const FeedItem = (props) => {
                   marginTop: 2,
                   marginLeft: 5,
                   fontWeight: "bold",
-                  color: "#0C7842",
+                  color: "#ACACAC",
                   fontSize: 10,
                 }}
               >
@@ -65,14 +65,14 @@ const FeedItem = (props) => {
             </TouchableOpacity>
           </View>
           <View style={styles.rowAtt}>
-            <Icon name="chatbubble-outline" size={15} color={"#0C7842"} />
+            <Icon name="chatbubble-outline" size={15} color={"#ACACAC"} />
             <Text
               style={[
                 {
                   marginTop: 2,
                   marginLeft: 5,
                   fontWeight: "bold",
-                  color: "#0C7842",
+                  color: "#ACACAC",
                   fontSize: 10,
                 },
               ]}
@@ -81,14 +81,14 @@ const FeedItem = (props) => {
             </Text>
           </View>
           <View style={styles.rowAtt}>
-            <Icon name="arrow-redo-outline" size={15} color={"#0C7842"} />
+            <Icon name="arrow-redo-outline" size={15} color={"#ACACAC"} />
             <Text
               style={[
                 {
                   marginTop: 2,
                   marginLeft: 5,
                   fontWeight: "bold",
-                  color: "#0C7842",
+                  color: "#ACACAC",
                   fontSize: 10,
                 },
               ]}

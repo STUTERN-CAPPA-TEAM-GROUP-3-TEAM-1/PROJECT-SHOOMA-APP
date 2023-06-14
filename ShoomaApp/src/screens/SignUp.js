@@ -50,191 +50,201 @@ const SignUp = () => {
 
   return (
     <>
-      <View>
-        <Image
-          style={{ marginTop: 50, alignSelf: "center", height: 40, width: 190 }}
-          source={require("../assets/Signup_logo.png")}
-        />
-      </View>
+      <SafeAreaView>
+        <View>
+          <Image
+            style={{
+              marginTop: 80,
+              alignSelf: "center",
+              height: 40,
+              width: 190,
+            }}
+            source={require("../assets/Signup_logo.png")}
+          />
+        </View>
 
-      <View style={{ marginTop: 50, marginLeft: 15, marginBottom: 10 }}>
-        <Text
-          style={{
-            color: "#0C7842",
-            fontWeight: "bold",
-            fontSize: 18,
-            marginBottom: 5,
-          }}
-        >
-          Sign Up
-        </Text>
-        <Text
-          style={{
-            color: "black",
-            width: "70%",
-            borderRadius: 5,
-            marginBottom: 10,
-          }}
-        >
-          Looks like you dont have an account. {"\n"}
-          Let's create an account for you!
-        </Text>
-      </View>
-
-      <SafeAreaView style={{ marginLeft: 15 }}>
-        <Text style={{ fontWeight: 600, marginBottom: 5 }}>Email</Text>
-        <TextInput
-          style={{
-            height: 40,
-
-            borderWidth: 1,
-            padding: 10,
-            marginBottom: 10,
-            borderRadius: 10,
-            marginRight: 25,
-          }}
-          placeholder="Email"
-          value={email}
-          onChangeText={(text) => setEmail(text)}
-        />
-        <Text style={{ fontWeight: 600, marginBottom: 5 }}>Password</Text>
-        <TextInput
-          style={{
-            height: 40,
-
-            borderWidth: 1,
-            padding: 10,
-            borderRadius: 10,
-            marginBottom: 10,
-            marginRight: 25,
-            borderStyle: "solid",
-          }}
-          placeholder="Password"
-          value={password}
-          onChangeText={(value) => validateAndSet(value, setPassword)}
-          secureTextEntry
-        />
-
-        <Text style={{ fontWeight: 600 }}> Confirm Password</Text>
-        <TextInput
-          style={{
-            height: 40,
-            marginTop: 5,
-            borderWidth: 1,
-            padding: 10,
-            borderRadius: 10,
-            marginRight: 25,
-            borderStyle: "solid",
-          }}
-          placeholder=" Confirm Password"
-          value={confirmpassword}
-          onChangeText={(value) => validateAndSet(value, setConfirmPassword)}
-          secureTextEntry
-          onBlur={() => checkPassword(password, confirmpassword)}
-        />
-        {
-          <Text style={{ color: "red", marginTop: 10 }}>
-            {validationMessage}
+        <View style={{ marginTop: 50, marginLeft: 15, marginBottom: 10 }}>
+          <Text
+            style={{
+              color: "#0C7842",
+              fontWeight: "bold",
+              fontSize: 18,
+              marginBottom: 5,
+            }}
+          >
+            Sign Up
           </Text>
-        }
-        <TouchableOpacity
-          style={{
-            backgroundColor: "#0C7842",
-            padding: 12,
-            borderRadius: 20,
-            marginTop: 10,
-            marginRight: 15,
-            width: "90%",
-            alignSelf: "center",
-          }}
-          onPress={createAccount}
-        >
-          <Text style={{ color: "#fff", alignSelf: "center" }}>Sign Up</Text>
-        </TouchableOpacity>
-      </SafeAreaView>
-      <View>
-        <Text style={{ textAlign: "center", color: "#9D9D9E", marginTop: 15 }}>
-          {" "}
-          OR
-        </Text>
-      </View>
+          <Text
+            style={{
+              color: "black",
+              width: "70%",
+              borderRadius: 5,
+              marginBottom: 10,
+            }}
+          >
+            Looks like you dont have an account. {"\n"}
+            Let's create an account for you!
+          </Text>
+        </View>
 
-      <View
-        style={{
-          flexDirection: "row",
-          marginTop: 10,
-          justifyContent: "space-evenly",
-        }}
-      >
-        <TouchableOpacity
-          style={{
-            padding: 15,
-            borderRadius: 18,
-            backgroundColor: "#CEDCD5",
-            marginTop: 15,
-          }}
-        >
-          <Image
-            source={require("../assets/apple-icon.png")}
-            style={{ width: 20, height: 25, borderRadius: 7 }}
-          />
-        </TouchableOpacity>
+        <SafeAreaView style={{ marginLeft: 15 }}>
+          <Text style={{ fontWeight: 600, marginBottom: 5 }}>Email</Text>
+          <TextInput
+            style={{
+              height: 40,
 
-        <TouchableOpacity
-          style={{
-            padding: 15,
-            borderRadius: 18,
-            marginTop: 15,
-            backgroundColor: "#CEDCD5",
-          }}
-        >
-          <Image
-            source={require("../assets/google-icon.png")}
-            style={{ width: 20, height: 20, borderRadius: 7 }}
+              borderWidth: 1,
+              padding: 10,
+              marginBottom: 10,
+              borderRadius: 10,
+              marginRight: 25,
+            }}
+            placeholder="Email"
+            value={email}
+            onChangeText={(text) => setEmail(text)}
           />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            padding: 15,
-            borderRadius: 18,
-            marginTop: 15,
-            backgroundColor: "#CEDCD5",
-          }}
-        >
-          <Image
-            source={require("../assets/Facebook_Logo.png")}
-            style={{ width: 20, height: 20, borderRadius: 7 }}
-          />
-        </TouchableOpacity>
-      </View>
+          <Text style={{ fontWeight: 600, marginBottom: 5 }}>Password</Text>
+          <TextInput
+            style={{
+              height: 40,
 
-      <View
-        style={{
-          marginLeft: 15,
-          marginRight: 15,
-          flex: 1,
-          justifyContent: "flex-end",
-          marginBottom: 10,
-        }}
-      >
+              borderWidth: 1,
+              padding: 10,
+              borderRadius: 10,
+              marginBottom: 10,
+              marginRight: 25,
+              borderStyle: "solid",
+            }}
+            placeholder="Password"
+            value={password}
+            onChangeText={(value) => validateAndSet(value, setPassword)}
+            secureTextEntry
+          />
+
+          <Text style={{ fontWeight: 600 }}> Confirm Password</Text>
+          <TextInput
+            style={{
+              height: 40,
+              marginTop: 5,
+              borderWidth: 1,
+              padding: 10,
+              borderRadius: 10,
+              marginRight: 25,
+              borderStyle: "solid",
+            }}
+            placeholder=" Confirm Password"
+            value={confirmpassword}
+            onChangeText={(value) => validateAndSet(value, setConfirmPassword)}
+            secureTextEntry
+            onBlur={() => checkPassword(password, confirmpassword)}
+          />
+          {
+            <Text style={{ color: "red", marginTop: 10 }}>
+              {validationMessage}
+            </Text>
+          }
+          <TouchableOpacity
+            style={{
+              backgroundColor: "#0C7842",
+              padding: 12,
+              borderRadius: 20,
+              marginTop: 10,
+              marginRight: 15,
+              width: "90%",
+              alignSelf: "center",
+            }}
+            onPress={createAccount}
+          >
+            <Text style={{ color: "#fff", alignSelf: "center" }}>Sign Up</Text>
+          </TouchableOpacity>
+        </SafeAreaView>
+        <View>
+          <Text
+            style={{ textAlign: "center", color: "#9D9D9E", marginTop: 15 }}
+          >
+            {" "}
+            OR
+          </Text>
+        </View>
+
         <View
           style={{
             flexDirection: "row",
-            alignSelf: "center",
-            marginBottom: 20,
-            fontSize: 18,
+            marginTop: 10,
+            justifyContent: "space-evenly",
+            marginBottom: 10,
           }}
         >
-          <Text style={{ fontSize: 16 }}>Click </Text>
-          <Link
-            style={{ color: "#0C7842", fontWeight: "bold", fontSize: 16 }}
-            to={{ screen: "Login", params: { id: "log" } }}
+          <TouchableOpacity
+            style={{
+              padding: 15,
+              borderRadius: 18,
+              backgroundColor: "#CEDCD5",
+              marginTop: 15,
+            }}
           >
-            next
-          </Link>
-          <Text style={{ fontSize: 16 }}> if you already have an account</Text>
+            <Image
+              source={require("../assets/apple-icon.png")}
+              style={{ width: 20, height: 25, borderRadius: 7 }}
+            />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={{
+              padding: 15,
+              borderRadius: 18,
+              marginTop: 15,
+              backgroundColor: "#CEDCD5",
+            }}
+          >
+            <Image
+              source={require("../assets/google-icon.png")}
+              style={{ width: 20, height: 20, borderRadius: 7 }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              padding: 15,
+              borderRadius: 18,
+              marginTop: 15,
+              backgroundColor: "#CEDCD5",
+            }}
+          >
+            <Image
+              source={require("../assets/Facebook_Logo.png")}
+              style={{ width: 20, height: 20, borderRadius: 7 }}
+            />
+          </TouchableOpacity>
         </View>
-      </View>
+
+        <View
+          style={{
+            marginLeft: 15,
+            marginRight: 15,
+          }}
+        >
+          <View
+            style={{
+              flexDirection: "row",
+              alignSelf: "center",
+
+              fontSize: 18,
+            }}
+          >
+            <Text style={{ fontSize: 16 }}>Click </Text>
+            <Link
+              style={{ color: "#0C7842", fontWeight: "bold", fontSize: 16 }}
+              to={{ screen: "Login", params: { id: "log" } }}
+            >
+              next
+            </Link>
+            <Text style={{ fontSize: 16 }}>
+              {" "}
+              if you already have an account
+            </Text>
+          </View>
+        </View>
+      </SafeAreaView>
     </>
   );
 };

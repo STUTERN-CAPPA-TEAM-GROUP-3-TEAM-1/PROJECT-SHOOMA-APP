@@ -9,6 +9,7 @@ import Post from "../navigation/Post";
 import FeedScreen from "../navigation/FeedScreen";
 import Settings from "../navigation/Settings";
 import { Image, View } from "react-native";
+import ImagePost from "../navigation/ImagePost";
 
 const Tab = createBottomTabNavigator();
 

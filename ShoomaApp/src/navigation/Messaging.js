@@ -32,47 +32,47 @@ const Messaging = ({ navigation }) => {
     <>
       <SafeAreaView>
         <View style={styles.container}>
-          <ScrollView>
+          <View>
             <View>
-              <View>
-                <Text
-                  style={{
-                    textAlign: "center",
-                    marginTop: 20,
-                    fontWeight: "bold",
-                    marginBottom: 20,
-                    fontSize: 15,
-                  }}
-                >
-                  Chats
-                </Text>
-              </View>
-              <View
+              <Text
                 style={{
-                  paddingLeft: 5,
-                  marginLeft: 5,
-                  flexDirection: "row",
-                  height: 44,
-                  width: "97%",
-                  backgroundColor: "#EDEDED",
-                  borderRadius: 5,
+                  textAlign: "center",
+                  marginTop: 20,
+                  fontWeight: "bold",
+                  marginBottom: 20,
+                  fontSize: 15,
                 }}
               >
-                <Image
-                  source={require("../assets/icons/searchicon.png")}
-                  style={{ width: 15, height: 15, alignSelf: "center" }}
-                />
-                <TextInput
-                  style={{
-                    fontSize: 14,
-                    color: "#656663",
-                    textAlign: "center",
-                    marginLeft: 5,
-                  }}
-                  placeholder="Search"
-                />
-              </View>
+                Chats
+              </Text>
+            </View>
+            <View
+              style={{
+                paddingLeft: 5,
+                marginLeft: 5,
+                flexDirection: "row",
+                height: 44,
+                width: "97%",
+                backgroundColor: "#EDEDED",
+                borderRadius: 5,
+              }}
+            >
+              <Image
+                source={require("../assets/icons/searchicon.png")}
+                style={{ width: 15, height: 15, alignSelf: "center" }}
+              />
+              <TextInput
+                style={{
+                  fontSize: 14,
+                  color: "#656663",
+                  textAlign: "center",
+                  marginLeft: 5,
+                }}
+                placeholder="Search"
+              />
+            </View>
 
+            <ScrollView>
               <FlatList
                 data={chat}
                 contentContainerStyle={{ paddingBottom: 10, marginTop: 20 }}
@@ -155,8 +155,8 @@ const Messaging = ({ navigation }) => {
                   </>
                 )}
               />
-            </View>
-          </ScrollView>
+            </ScrollView>
+          </View>
         </View>
       </SafeAreaView>
     </>
@@ -167,16 +167,15 @@ export default Messaging;
 
 const styles = StyleSheet.create({
   container: {
-    height: Dimensions.get("screen").height,
     backgroundColor: "#ffffff",
-    paddingTop: 20,
+    paddingTop: 25,
     marginLeft: 10,
     marginRight: 10,
   },
   row: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 10,
+
     justifyContent: "space-between",
   },
 

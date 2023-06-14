@@ -129,7 +129,7 @@ const PicturePost = () => {
           <TouchableOpacity
             style={{
               height: 26,
-              backgroundColor: "#0C7842",
+              backgroundColor: "#16D877",
               width: "30%",
               marginRight: 5,
               borderRadius: 3,
@@ -166,7 +166,6 @@ const PicturePost = () => {
             data={feeds.feed}
             contentContainerStyle={{
               paddingBottom: 100,
-              backgroundColor: "white",
             }}
             renderItem={({ item }) => <FeedItem data={item} />}
           />
@@ -182,7 +181,7 @@ const styles = StyleSheet.create({
   container: {
     height: Dimensions.get("screen").height,
 
-    marginTop: 10,
+    marginTop: 20,
   },
 
   headerSec: {

@@ -53,7 +53,12 @@ const Login = () => {
     <SafeAreaView>
       <View>
         <Image
-          style={{ marginTop: 50, alignSelf: "center", height: 40, width: 190 }}
+          style={{
+            marginTop: 100,
+            alignSelf: "center",
+            height: 40,
+            width: 190,
+          }}
           source={require("../assets/Signup_logo.png")}
         />
       </View>

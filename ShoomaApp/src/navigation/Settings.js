@@ -17,6 +17,7 @@ import { Link } from "@react-navigation/native";
 import { getAuth, signOut, sendPasswordResetEmail } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useAuthentication } from "../hook/useAuthentication";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const auth = getAuth();
 
@@ -86,22 +87,23 @@ function Settings() {
           height: "65%",
           borderTopRightRadius: 40,
           borderTopLeftRadius: 40,
-          marginTop: 10,
-          borderColor: "#0C7842",
-          borderWidth: 2,
+          marginTop: 30,
         }}
       >
         <TouchableOpacity
           style={{
             width: "50%",
-            alignSelf: "center",
-            backgroundColor: "white",
+            justifyContent: "flex-start",
 
             padding: 18,
+            flexDirection: "row",
+            marginLeft: 15,
           }}
         >
+          <Icon name="person-circle-outline" size={20} color={"black"} />
+
           <Link
-            style={{ fontSize: 16, textAlign: "center" }}
+            style={{ fontSize: 14, textAlign: "center", marginLeft: 15 }}
             to={{ screen: "Home", params: { id: "influence" } }}
           >
             Your Account
@@ -109,7 +111,8 @@ function Settings() {
         </TouchableOpacity>
         <View
           style={{
-            borderBottomColor: "#A6A6A6",
+            borderBottomColor: "#DADADA",
+
             marginTop: 4,
             width: "90%",
             alignSelf: "center",
@@ -119,14 +122,17 @@ function Settings() {
         <TouchableOpacity
           style={{
             width: "50%",
-            alignSelf: "center",
-            backgroundColor: "white",
 
+            backgroundColor: "white",
+            justifyContent: "flex-start",
+            flexDirection: "row",
             padding: 18,
+            marginLeft: 15,
           }}
         >
+          <Icon name="lock-closed-outline" size={20} color={"black"} />
           <Link
-            style={{ fontSize: 16, textAlign: "center" }}
+            style={{ fontSize: 14, textAlign: "center", marginLeft: 15 }}
             to={{ screen: "Home", params: { id: "influence" } }}
           >
             Privacy and Safety
@@ -134,7 +140,7 @@ function Settings() {
         </TouchableOpacity>
         <View
           style={{
-            borderBottomColor: "#A6A6A6",
+            borderBottomColor: "#DADADA",
             marginTop: 4,
             width: "90%",
             alignSelf: "center",
@@ -144,14 +150,17 @@ function Settings() {
         <TouchableOpacity
           style={{
             width: "50%",
-            alignSelf: "center",
-            backgroundColor: "white",
 
+            backgroundColor: "white",
+            justifyContent: "flex-start",
+            flexDirection: "row",
             padding: 18,
+            marginLeft: 15,
           }}
         >
+          <Icon name="notifications-outline" size={20} color={"black"} />
           <Link
-            style={{ fontSize: 16, textAlign: "center" }}
+            style={{ fontSize: 14, textAlign: "center", marginLeft: 15 }}
             to={{ screen: "Home", params: { id: "influence" } }}
           >
             Notification
@@ -159,7 +168,7 @@ function Settings() {
         </TouchableOpacity>
         <View
           style={{
-            borderBottomColor: "#A6A6A6",
+            borderBottomColor: "#DADADA",
             marginTop: 4,
             width: "90%",
             alignSelf: "center",
@@ -169,15 +178,18 @@ function Settings() {
         <TouchableOpacity
           style={{
             width: "50%",
-            alignSelf: "center",
-            backgroundColor: "white",
 
-            padding: 20,
+            backgroundColor: "white",
+            justifyContent: "flex-start",
+            flexDirection: "row",
+            padding: 18,
+            marginLeft: 15,
           }}
         >
+          <Icon name="help-circle-outline" size={20} color={"black"} />
           <Link
-            style={{ fontSize: 16, textAlign: "center" }}
-            to={{ screen: "InfluencerPage", params: { id: "influence" } }}
+            style={{ fontSize: 14, textAlign: "center", marginLeft: 15 }}
+            to={{ screen: "Home", params: { id: "influence" } }}
           >
             Help & Support
           </Link>
@@ -185,7 +197,7 @@ function Settings() {
 
         <View
           style={{
-            borderBottomColor: "#A6A6A6",
+            borderBottomColor: "#DADADA",
             marginTop: 4,
             width: "90%",
             alignSelf: "center",
@@ -195,22 +207,25 @@ function Settings() {
         <TouchableOpacity
           style={{
             width: "50%",
-            alignSelf: "center",
-            backgroundColor: "white",
 
-            padding: 20,
+            backgroundColor: "white",
+            justifyContent: "flex-start",
+            flexDirection: "row",
+            padding: 18,
+            marginLeft: 15,
           }}
         >
+          <Icon name="alert-circle-outline" size={20} color={"black"} />
           <Link
-            style={{ fontSize: 16, textAlign: "center" }}
-            to={{ screen: "InfluencerPage", params: { id: "influence" } }}
+            style={{ fontSize: 14, textAlign: "center", marginLeft: 15 }}
+            to={{ screen: "Home", params: { id: "influence" } }}
           >
             About
           </Link>
         </TouchableOpacity>
         <View
           style={{
-            borderBottomColor: "#A6A6A6",
+            borderBottomColor: "#DADADA",
             marginTop: 4,
             width: "90%",
             alignSelf: "center",
@@ -222,20 +237,23 @@ function Settings() {
             changePassword();
           }}
           style={{
-            width: "60%",
-            alignSelf: "center",
-            backgroundColor: "white",
+            width: "50%",
 
-            padding: 20,
+            backgroundColor: "white",
+            justifyContent: "flex-start",
+            flexDirection: "row",
+            padding: 18,
+            marginLeft: 15,
           }}
         >
-          <Text style={{ fontSize: 16, textAlign: "center" }}>
+          <Icon name="cloud-upload-outline" size={20} color={"black"} />
+          <Text style={{ fontSize: 14, textAlign: "center", marginLeft: 15 }}>
             Update Password
           </Text>
         </TouchableOpacity>
         <View
           style={{
-            borderBottomColor: "#A6A6A6",
+            borderBottomColor: "#DADADA",
             marginTop: 4,
             width: "90%",
             alignSelf: "center",
@@ -246,13 +264,18 @@ function Settings() {
           onPress={() => signOut(auth)}
           style={{
             width: "50%",
-            alignSelf: "center",
-            backgroundColor: "white",
 
-            padding: 20,
+            backgroundColor: "white",
+            justifyContent: "flex-start",
+            flexDirection: "row",
+            padding: 18,
+            marginLeft: 15,
           }}
         >
-          <Text style={{ fontSize: 16, textAlign: "center" }}>Sign out</Text>
+          <Icon name="log-out-outline" size={20} color={"black"} />
+          <Text style={{ fontSize: 14, textAlign: "center", marginLeft: 15 }}>
+            Sign out
+          </Text>
         </TouchableOpacity>
       </View>
     </>

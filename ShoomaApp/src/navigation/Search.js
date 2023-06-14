@@ -8,98 +8,93 @@ import {
   FlatList,
   Image,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [images, setImages] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = () => {
-    fetchImages();
-  };
-
-  const fetchImages = async () => {
-    const response = await fetch(
-      `https://api.unsplash.com/photos/random?count=20&query=${searchQuery}&client_id=Z-Cj-v0BtWd-MxMm7Y6duuJPCGpM8FEpFBKeAfRW3cM`
-    );
-    const data = await response.json();
-    setImages(data);
+    fetch(
+      `https://api.unsplash.com/search/photos?query=${searchQuery}&client_id=Z-Cj-v0BtWd-MxMm7Y6duuJPCGpM8FEpFBKeAfRW3cM`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setSearchResults(data.results);
+      })
+      .catch((error) => {
+        console.log("Error fetching images:", error);
+      });
   };
 
   const renderItem = ({ item }) => (
-    <Image style={styles.image} source={{ uri: item.urls.small }} />
+    <Image style={styles.image} source={{ uri: item.urls.thumb }} />
   );
 
   return (
-    <View style={styles.container}>
-      <View
-        style={{
-          paddingLeft: 5,
-
-          flexDirection: "row",
-          height: 44,
-
-          backgroundColor: "#EDEDED",
-          borderRadius: 5,
-          marginBottom: 10,
-        }}
-      >
+    <SafeAreaView>
+      <View style={styles.container}>
         <Image
-          source={require("../assets/icons/searchicon.png")}
-          style={{ width: 15, height: 15, alignSelf: "center" }}
+          source={require("../assets/images/post_logo.png")}
+          style={{
+            width: 83,
+            height: 18,
+            marginBottom: 10,
+            alignSelf: "center",
+          }}
         />
         <TextInput
-          style={{
-            height: 40,
-            borderColor: "gray",
-
-            paddingHorizontal: 8,
-            borderRadius: 5,
-            backgroundColor: "#EDEDED",
-          }}
+          style={styles.searchInput}
           placeholder="Search"
           value={searchQuery}
           onChangeText={(text) => setSearchQuery(text)}
-          onEndEditing={handleSearch}
+        />
+        <TouchableOpacity style={styles.button} onPress={handleSearch}>
+          <Text style={styles.buttonText}>Search</Text>
+        </TouchableOpacity>
+        <FlatList
+          data={searchResults}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          numColumns={2}
         />
       </View>
-
-      <FlatList
-        data={images}
-        numColumns={2}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={renderItem}
-      />
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 16,
+    padding: 10,
     backgroundColor: "#fff",
-    marginTop: 30,
   },
-  heading: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 16,
-  },
+
   searchInput: {
     height: 40,
     borderColor: "gray",
-
+    borderWidth: 1,
     marginBottom: 8,
     paddingHorizontal: 8,
-    borderRadius: 5,
-    backgroundColor: "#EDEDED",
+    borderRadius: 8,
+  },
+  button: {
+    backgroundColor: "#0C7842",
+    padding: 12,
+    alignItems: "center",
+    borderRadius: 4,
+    marginBottom: 16,
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
   },
   image: {
     width: "50%",
     aspectRatio: 1,
     marginBottom: 5,
-    borderRadius: 8,
-    marginRight: 2,
+    borderRadius: 5,
+    marginLeft: 4,
   },
 });
 

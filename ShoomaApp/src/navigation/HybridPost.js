@@ -164,7 +164,7 @@ function HybridPost() {
             <TouchableOpacity
               style={{
                 height: 26,
-                backgroundColor: "#0C7842",
+                backgroundColor: "#16D877",
                 width: "30%",
                 borderRadius: 3,
                 paddingTop: 3,
@@ -182,13 +182,11 @@ function HybridPost() {
 
         <View
           style={{
-            flex: 1,
             backgroundColor: "#FAFAFA",
             borderRadius: 10,
             width: 342,
             height: 100,
             marginTop: 15,
-            marginBottom: 30,
           }}
         >
           <TouchableOpacity>
@@ -199,19 +197,16 @@ function HybridPost() {
 
             <View style={[styles.row, { marginTop: 10 }]}>
               <View style={styles.rowAtt}>
-                <Icon name="heart-outline" size={20} color={"#0C7842"} />
+                <Icon name="heart-outline" size={15} color={"#ACACAC"} />
 
-                <TouchableOpacity
-                  onPress={handleLike}
-                  style={styles.likeButton}
-                >
+                <TouchableOpacity>
                   <Text
                     style={{
                       marginTop: 2,
                       marginLeft: 5,
                       fontWeight: "bold",
-                      color: "#0C7842",
-                      fontSize: 12,
+                      color: "#ACACAC",
+                      fontSize: 11,
                     }}
                   >
                     {isLiked ? "Unlike" : "Like"}
@@ -219,31 +214,31 @@ function HybridPost() {
                 </TouchableOpacity>
               </View>
               <View style={styles.rowAtt}>
-                <Icon name="chatbubble-outline" size={20} color={"#0C7842"} />
+                <Icon name="chatbubble-outline" size={15} color={"#ACACAC"} />
                 <Text
                   style={[
                     {
                       marginTop: 2,
                       marginLeft: 5,
                       fontWeight: "bold",
-                      color: "#0C7842",
-                      fontSize: 12,
+                      color: "#ACACAC",
+                      fontSize: 11,
                     },
                   ]}
                 >
-                  Saved
+                  comment
                 </Text>
               </View>
               <View style={styles.rowAtt}>
-                <Icon name="arrow-redo-outline" size={20} color={"#0C7842"} />
+                <Icon name="arrow-redo-outline" size={15} color={"#ACACAC"} />
                 <Text
                   style={[
                     {
                       marginTop: 2,
                       marginLeft: 5,
                       fontWeight: "bold",
-                      color: "#0C7842",
-                      fontSize: 12,
+                      color: "#ACACAC",
+                      fontSize: 11,
                     },
                   ]}
                 >
@@ -274,7 +269,7 @@ function HybridPost() {
           marginRight: 10,
           width: "100%",
           height: 100,
-          marginTop: 200,
+          marginTop: 130,
           marginBottom: 10,
         }}
       >
@@ -320,15 +315,15 @@ function HybridPost() {
 
           <View style={[styles.row]}>
             <View style={styles.rowAtt}>
-              <Icon name="heart-outline" size={15} color={"#0C7842"} />
+              <Icon name="heart-outline" size={15} color={"#ACACAC"} />
 
-              <TouchableOpacity onPress={handleLike} style={styles.likeButton}>
+              <TouchableOpacity>
                 <Text
                   style={{
                     marginTop: 2,
                     marginLeft: 5,
                     fontWeight: "bold",
-                    color: "#0C7842",
+                    color: "#ACACAC",
                     fontSize: 10,
                   }}
                 >
@@ -337,13 +332,14 @@ function HybridPost() {
               </TouchableOpacity>
             </View>
             <View style={styles.rowAtt}>
+              <Icon name="chatbubble-outline" size={15} color={"#ACACAC"} />
               <Text
                 style={[
                   {
                     marginTop: 2,
                     marginLeft: 5,
                     fontWeight: "bold",
-                    color: "#0C7842",
+                    color: "#ACACAC",
                     fontSize: 10,
                   },
                 ]}
@@ -352,14 +348,14 @@ function HybridPost() {
               </Text>
             </View>
             <View style={styles.rowAtt}>
-              <Icon name="arrow-redo-outline" size={15} color={"#0C7842"} />
+              <Icon name="arrow-redo-outline" size={15} color={"#ACACAC"} />
               <Text
                 style={[
                   {
                     marginTop: 2,
                     marginLeft: 5,
                     fontWeight: "bold",
-                    color: "#0C7842",
+                    color: "#ACACAC",
                     fontSize: 10,
                   },
                 ]}
@@ -426,15 +422,15 @@ function HybridPost() {
 
           <View style={[styles.row]}>
             <View style={styles.rowAtt}>
-              <Icon name="heart-outline" size={15} color={"#0C7842"} />
+              <Icon name="heart-outline" size={15} color={"#ACACAC"} />
 
-              <TouchableOpacity onPress={handleLike} style={styles.likeButton}>
+              <TouchableOpacity>
                 <Text
                   style={{
                     marginTop: 2,
                     marginLeft: 5,
                     fontWeight: "bold",
-                    color: "#0C7842",
+                    color: "#ACACAC",
                     fontSize: 10,
                   }}
                 >
@@ -443,13 +439,14 @@ function HybridPost() {
               </TouchableOpacity>
             </View>
             <View style={styles.rowAtt}>
+              <Icon name="chatbubble-outline" size={15} color={"#ACACAC"} />
               <Text
                 style={[
                   {
                     marginTop: 2,
                     marginLeft: 5,
                     fontWeight: "bold",
-                    color: "#0C7842",
+                    color: "#ACACAC",
                     fontSize: 10,
                   },
                 ]}
@@ -458,14 +455,14 @@ function HybridPost() {
               </Text>
             </View>
             <View style={styles.rowAtt}>
-              <Icon name="arrow-redo-outline" size={15} color={"#0C7842"} />
+              <Icon name="arrow-redo-outline" size={15} color={"#ACACAC"} />
               <Text
                 style={[
                   {
                     marginTop: 2,
                     marginLeft: 5,
                     fontWeight: "bold",
-                    color: "#0C7842",
+                    color: "#ACACAC",
                     fontSize: 10,
                   },
                 ]}
@@ -482,18 +479,6 @@ function HybridPost() {
 
 export default HybridPost;
 const styles = StyleSheet.create({
-  feedItem: {
-    width: "100%",
-    marginBottom: 30,
-  },
-
-  feedItemHeader: {
-    padding: 10,
-    paddingHorizontal: 30,
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-
   avatar: {
     width: 40,
     height: 40,
