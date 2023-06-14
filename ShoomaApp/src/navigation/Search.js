@@ -34,15 +34,6 @@ const Search = () => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <Image
-          source={require("../assets/images/post_logo.png")}
-          style={{
-            width: 83,
-            height: 18,
-            marginBottom: 10,
-            alignSelf: "center",
-          }}
-        />
         <TextInput
           style={styles.searchInput}
           placeholder="Search"
@@ -66,11 +57,11 @@ const Search = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    backgroundColor: "#fff",
+    marginTop: 20,
   },
 
   searchInput: {
-    height: 40,
+    height: 45,
     borderColor: "gray",
     borderWidth: 1,
     marginBottom: 8,
