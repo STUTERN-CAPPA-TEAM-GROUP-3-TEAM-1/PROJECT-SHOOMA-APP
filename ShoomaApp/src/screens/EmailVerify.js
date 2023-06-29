@@ -17,6 +17,12 @@ import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
 } from "firebase/auth";
+import {
+  ALERT_TYPE,
+  Dialog,
+  AlertNotificationRoot,
+  Toast,
+} from "react-native-alert-notification";
 
 const auth = getAuth();
 const EmailVerify = () => {
@@ -55,6 +61,7 @@ const EmailVerify = () => {
           alignSelf: "center",
           flex: 1,
           justifyContent: "center",
+          marginTop: 70,
         }}
       >
         <View>
@@ -110,7 +117,11 @@ const EmailVerify = () => {
             <Text style={{ color: "white", alignSelf: "center" }}>Submit</Text>
           </TouchableOpacity>
           <View
-            style={{ alignSelf: "center", flexDirection: "row", marginTop: 20 }}
+            style={{
+              alignSelf: "center",
+              flexDirection: "row",
+              marginTop: 20,
+            }}
           >
             <Link
               style={{ color: "#0C7842", fontWeight: "bold" }}

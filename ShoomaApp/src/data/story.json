@@ -1,0 +1,26 @@
+
+{
+    "data":[
+    {
+      "user_id": 1,
+      "user_image":
+        "https://pbs.twimg.com/https://highxtar.com/wp-content/uploads/2020/07/highxtar-apple-new-emojis-2-1024x1024.pngprofile_images/1222140802475773952/61OmyINj.jpg",
+      "user_name": "Kiesamni.a",
+      "stories": [
+        {
+          "story_id": 1,
+          "story_image":
+            "https://image.freepik.com/free-vector/universe-mobile-wallpaper-with-planets_79603-600.jpg",
+          "swipeText": "Custom swipe text for this story"
+        
+        },
+        {
+          "story_id": 2,
+          "story_image":
+            "https://image.freepik.com/free-vector/mobile-wallpaper-with-fluid-shapes_79603-601.jpg"
+        }
+      ]
+    }
+   
+  ]
+}

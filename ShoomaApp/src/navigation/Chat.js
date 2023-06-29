@@ -11,7 +11,7 @@ const Chat = () => {
     setMessages([
       {
         _id: 1,
-        text: "Hello developer",
+        text: "Hello friend",
         createdAt: new Date(),
         user: {
           _id: 2,
@@ -21,7 +21,7 @@ const Chat = () => {
       },
       {
         _id: 2,
-        text: "Hello world",
+        text: "Hello dear",
         createdAt: new Date(),
         user: {
           _id: 1,

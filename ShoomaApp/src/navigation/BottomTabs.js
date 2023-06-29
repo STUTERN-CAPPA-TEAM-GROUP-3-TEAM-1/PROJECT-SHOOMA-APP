@@ -5,24 +5,27 @@ import Home from "../navigation/Home";
 import Profile from "../navigation/Profile";
 import Messaging from "../navigation/Messaging";
 import Search from "../navigation/Search";
-import Post from "../navigation/Post";
+import CreatePost from "../navigation/CreatePost";
 import FeedScreen from "../navigation/FeedScreen";
 import Settings from "../navigation/Settings";
 import { Image, View } from "react-native";
 import ImagePost from "../navigation/ImagePost";
+import ProfileView from "../navigation/ProfileView";
+import Posts from "../navigation/Posts";
+import TopBar from "../navigation/TopBar";
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabs = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="Posts"
       screenOptions={{ headerShown: true, tabBarShowLabel: false }}
     >
       <Tab.Screen
         style={{ backgroundColor: "#F3F3F3" }}
-        name="Home"
-        component={Home}
+        name="Posts"
+        component={TopBar}
         options={{
           headerShown: false,
           tabBarIcon: () => {
@@ -37,8 +40,8 @@ const BottomTabs = () => {
                 <Image
                   source={require("../assets/homeicon.png")}
                   style={{
-                    width: 16,
-                    height: 18,
+                    width: 18,
+                    height: 20,
                   }}
                 />
               </View>
@@ -63,8 +66,8 @@ const BottomTabs = () => {
                 <Image
                   source={require("../assets/search-icon.png")}
                   style={{
-                    width: 20,
-                    height: 20,
+                    width: 23,
+                    height: 23,
                     tintColor: "#979797",
                   }}
                 />
@@ -74,8 +77,8 @@ const BottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Post"
-        component={Post}
+        name="CreatePost"
+        component={CreatePost}
         options={{
           headerShown: false,
           tabBarIcon: () => {
@@ -90,8 +93,8 @@ const BottomTabs = () => {
                 <Image
                   source={require("../assets/plus.png")}
                   style={{
-                    width: 20,
-                    height: 20,
+                    width: 24,
+                    height: 24,
                     tintColor: "#979797",
                   }}
                 />
@@ -118,8 +121,8 @@ const BottomTabs = () => {
                 <Image
                   source={require("../assets/chat.png")}
                   style={{
-                    width: 20,
-                    height: 20,
+                    width: 24,
+                    height: 24,
                     tintColor: "#979797",
                   }}
                 />
@@ -129,8 +132,8 @@ const BottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Settings"
-        component={Settings}
+        name="ProfileView"
+        component={ProfileView}
         options={{
           headerShown: false,
           tabBarIcon: () => {
@@ -145,8 +148,8 @@ const BottomTabs = () => {
                 <Image
                   source={require("../assets/profile.png")}
                   style={{
-                    width: 20,
-                    height: 20,
+                    width: 24,
+                    height: 24,
                   }}
                 />
               </View>

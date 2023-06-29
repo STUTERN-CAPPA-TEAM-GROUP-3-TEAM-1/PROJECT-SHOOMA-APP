@@ -149,8 +149,8 @@ const SignUp = () => {
               padding: 12,
               borderRadius: 20,
               marginTop: 10,
-              marginRight: 15,
-              width: "90%",
+              marginRight: 20,
+              width: "92%",
               alignSelf: "center",
             }}
             onPress={createAccount}

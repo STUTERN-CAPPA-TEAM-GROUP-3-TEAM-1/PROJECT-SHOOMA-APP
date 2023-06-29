@@ -1,43 +1,63 @@
 import React, { useState } from "react";
-import { View, Button, Image, StyleSheet } from "react-native";
+import {
+  View,
+  FlatList,
+  StyleSheet,
+  TextInput,
+  Button,
+  Image,
+  TouchableOpacity,
+  Text,
+} from "react-native";
+
 const ImagePost = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [posts, setPosts] = useState([]);
+  const [newPostText, setNewPostText] = useState("");
+  const [newPostImage, setNewPostImage] = useState(null);
 
-  const handleImageUpload = async () => {
-    try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            image: selectedImage,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      // Handle the response from the server
-      // For example, display a success message or handle errors
-      console.log("Image uploaded successfully!");
-    } catch (error) {
-      console.error("Error uploading image:", error);
-    }
+  const handlePost = () => {
+    const newPost = { text: newPostText, image: newPostImage };
+    setPosts([newPost, ...posts]);
+    setNewPostText("");
+    setNewPostImage(null);
   };
 
   const handleImageSelection = () => {
-    // Code to open the image picker and select an image
-    // Store the selected image URI in the selectedImage state
+    // Implement image selection logic here, such as using Image Picker library
+    // Set the selected image URI to newPostImage state
   };
+
+  const renderPostItem = ({ item }) => (
+    <View style={styles.postContainer}>
+      {item.image && (
+        <Image source={{ uri: item.image }} style={styles.postImage} />
+      )}
+      <Text>{item.text}</Text>
+    </View>
+  );
 
   return (
     <View style={styles.container}>
-      <Button title="Select Image" onPress={handleImageSelection} />
-      <Button title="Upload Image" onPress={handleImageUpload} />
-      {selectedImage && (
-        <Image source={{ uri: selectedImage }} style={styles.image} />
-      )}
+      <View style={styles.newPostContainer}>
+        <TextInput
+          style={styles.newPostInput}
+          placeholder="Write a post..."
+          value={newPostText}
+          onChangeText={setNewPostText}
+        />
+        <TouchableOpacity
+          style={styles.imageButton}
+          onPress={handleImageSelection}
+        >
+          <Text>Select Image</Text>
+        </TouchableOpacity>
+        <Button title="Post" onPress={handlePost} disabled={!newPostText} />
+      </View>
+      <FlatList
+        data={posts}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={renderPostItem}
+      />
     </View>
   );
 };
@@ -45,13 +65,40 @@ const ImagePost = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    padding: 10,
   },
-  image: {
-    width: 200,
+  newPostContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  newPostInput: {
+    flex: 1,
+    marginRight: 10,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 8,
+    padding: 8,
+  },
+  imageButton: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 8,
+  },
+  postContainer: {
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 8,
+    padding: 10,
+  },
+  postImage: {
+    width: "100%",
     height: 200,
-    marginTop: 20,
+    marginBottom: 10,
   },
 });
+
 export default ImagePost;

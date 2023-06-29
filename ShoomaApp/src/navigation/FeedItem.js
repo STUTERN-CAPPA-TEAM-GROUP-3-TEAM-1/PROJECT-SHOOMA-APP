@@ -21,7 +21,9 @@ const FeedItem = (props) => {
         <View style={{ flexDirection: "row" }}>
           <Image source={{ uri: props.data.avatarurl }} style={styles.avatar} />
           <View style={{ marginLeft: 10 }}>
-            <Text style={{ fontSize: 12 }}>{props.data.name}</Text>
+            <Text style={{ fontSize: 15, fontWeight: 600 }}>
+              {props.data.name}
+            </Text>
             <Text style={{ fontSize: 10 }}>{props.data.posttime}</Text>
           </View>
         </View>
@@ -48,7 +50,7 @@ const FeedItem = (props) => {
           style={[styles.row, { marginTop: 5, marginLeft: 5, marginRight: 5 }]}
         >
           <View style={styles.rowAtt}>
-            <Icon name="heart-outline" size={15} color={"#ACACAC"} />
+            <Icon name="heart-outline" size={20} color={"#0C7842"} />
 
             <TouchableOpacity onPress={handleLike} style={styles.likeButton}>
               <Text
@@ -56,8 +58,8 @@ const FeedItem = (props) => {
                   marginTop: 2,
                   marginLeft: 5,
                   fontWeight: "bold",
-                  color: "#ACACAC",
-                  fontSize: 10,
+                  color: "#0C7842",
+                  fontSize: 12,
                 }}
               >
                 {isLiked ? "Unlike" : "Like"}
@@ -65,15 +67,15 @@ const FeedItem = (props) => {
             </TouchableOpacity>
           </View>
           <View style={styles.rowAtt}>
-            <Icon name="chatbubble-outline" size={15} color={"#ACACAC"} />
+            <Icon name="chatbubble-outline" size={20} color={"#0C7842"} />
             <Text
               style={[
                 {
                   marginTop: 2,
                   marginLeft: 5,
                   fontWeight: "bold",
-                  color: "#ACACAC",
-                  fontSize: 10,
+                  color: "#0C7842",
+                  fontSize: 12,
                 },
               ]}
             >
@@ -81,15 +83,15 @@ const FeedItem = (props) => {
             </Text>
           </View>
           <View style={styles.rowAtt}>
-            <Icon name="arrow-redo-outline" size={15} color={"#ACACAC"} />
+            <Icon name="arrow-redo-outline" size={20} color={"#0C7842"} />
             <Text
               style={[
                 {
                   marginTop: 2,
                   marginLeft: 5,
                   fontWeight: "bold",
-                  color: "#ACACAC",
-                  fontSize: 10,
+                  color: "#0C7842",
+                  fontSize: 12,
                 },
               ]}
             >

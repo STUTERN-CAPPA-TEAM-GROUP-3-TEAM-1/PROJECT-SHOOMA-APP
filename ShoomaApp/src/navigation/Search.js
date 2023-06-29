@@ -33,22 +33,26 @@ const Search = () => {
 
   return (
     <SafeAreaView>
-      <View style={styles.container}>
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Search"
-          value={searchQuery}
-          onChangeText={(text) => setSearchQuery(text)}
-        />
-        <TouchableOpacity style={styles.button} onPress={handleSearch}>
-          <Text style={styles.buttonText}>Search</Text>
-        </TouchableOpacity>
-        <FlatList
-          data={searchResults}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-          numColumns={2}
-        />
+      <View style={{ backgroundColor: "white" }}>
+        <View style={styles.container}>
+          <View style={{ flexDirection: "row" }}>
+            <TextInput
+              style={styles.searchInput}
+              placeholder="Type..."
+              value={searchQuery}
+              onChangeText={(text) => setSearchQuery(text)}
+            />
+            <TouchableOpacity style={styles.button} onPress={handleSearch}>
+              <Text style={styles.buttonText}>Search</Text>
+            </TouchableOpacity>
+          </View>
+          <FlatList
+            data={searchResults}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id}
+            numColumns={2}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -56,36 +60,42 @@ const Search = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    marginTop: 20,
+    padding: 16,
+    backgroundColor: "#fff",
+    marginTop: 30,
   },
 
   searchInput: {
-    height: 45,
+    height: 40,
     borderColor: "gray",
     borderWidth: 1,
     marginBottom: 8,
     paddingHorizontal: 8,
     borderRadius: 8,
+    width: "80%",
   },
   button: {
     backgroundColor: "#0C7842",
-    padding: 12,
-    alignItems: "center",
-    borderRadius: 4,
+    padding: 7,
+    alignSelf: "flex-end",
+    borderRadius: 10,
     marginBottom: 16,
+    width: "20%",
+    marginLeft: 5,
+    height: 40,
   },
   buttonText: {
     color: "#fff",
-    fontSize: 16,
-    fontWeight: "bold",
+    fontSize: 14,
+
+    textAlign: "center",
   },
   image: {
     width: "50%",
     aspectRatio: 1,
     marginBottom: 5,
-    borderRadius: 5,
-    marginLeft: 4,
+    marginLeft: 3,
+    borderRadius: 4,
   },
 });
 

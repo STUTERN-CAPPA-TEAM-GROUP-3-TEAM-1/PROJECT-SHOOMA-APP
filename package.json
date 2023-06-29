@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "react-native-modern-datepicker": "^1.0.0-beta.91"
+  }
+}

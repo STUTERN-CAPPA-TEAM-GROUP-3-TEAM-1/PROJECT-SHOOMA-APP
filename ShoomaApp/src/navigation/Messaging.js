@@ -1,16 +1,4 @@
 import React from "react";
-import {
-  Container,
-  Card,
-  UserInfo,
-  UserImgWrapper,
-  UserImg,
-  UserInfoText,
-  UserName,
-  PostTime,
-  MessageText,
-  TextSection,
-} from "react-native-paper";
 
 import {
   StyleSheet,
@@ -37,13 +25,13 @@ const Messaging = ({ navigation }) => {
               <Text
                 style={{
                   textAlign: "center",
-                  marginTop: 20,
+                  marginTop: 18,
                   fontWeight: "bold",
-                  marginBottom: 20,
-                  fontSize: 15,
+                  marginBottom: 18,
+                  fontSize: 17,
                 }}
               >
-                Chats
+                Messages
               </Text>
             </View>
             <View
@@ -71,91 +59,96 @@ const Messaging = ({ navigation }) => {
                 placeholder="Search"
               />
             </View>
-
-            <ScrollView>
-              <FlatList
-                data={chat}
-                contentContainerStyle={{ paddingBottom: 10, marginTop: 20 }}
-                scrollEnabled={false}
-                renderItem={({ item }) => (
-                  <>
-                    <TouchableOpacity
-                      style={styles.chatItem}
-                      onPress={() =>
-                        navigation.navigate("Chat", { userName: item.userName })
-                      }
-                    >
-                      <Image
-                        source={{ uri: item.avatarurl }}
-                        style={{
-                          width: 50,
-                          height: 51,
-                          borderRadius: 20,
-                          margin: 5,
-                          borderColor: "#0C7842",
-                          borderWidth: 0,
-                        }}
-                      />
-
-                      <View
-                        style={{
-                          marginLeft: 10,
-                          width: "65%",
-                          flexDirection: "row",
-                          justifyContent: "space-between",
-                        }}
+            <View>
+              <ScrollView>
+                <FlatList
+                  data={chat}
+                  contentContainerStyle={{ marginTop: 18 }}
+                  scrollEnabled={false}
+                  renderItem={({ item }) => (
+                    <>
+                      <TouchableOpacity
+                        style={styles.chatItem}
+                        onPress={() =>
+                          navigation.navigate("Chat", { userName: item.name })
+                        }
                       >
-                        <View>
-                          <Text
-                            style={[
-                              {
-                                color: "#000000",
-                                fontWeight: "bold",
-                                marginTop: 10,
-                              },
-                            ]}
-                          >
-                            {item.name}
-                          </Text>
-                          <Text style={{ fontSize: 12 }}>{item.lastmsg}</Text>
-                        </View>
-                        <View>
-                          {item.lastonline === "RN" ? (
-                            <Text
-                              style={{
-                                backgroundColor: "#0C7842",
-                                width: 8,
-                                height: 8,
-                                marginTop: 26,
-                                borderRadius: 50,
-                                marginRight: 5,
-                              }}
-                            ></Text>
-                          ) : (
+                        <Image
+                          source={{ uri: item.avatarurl }}
+                          style={{
+                            width: 50,
+                            height: 51,
+                            borderRadius: 20,
+                            margin: 5,
+                            borderColor: "#0C7842",
+                            borderWidth: 0,
+                          }}
+                        />
+
+                        <View
+                          style={{
+                            marginLeft: 10,
+                            width: "65%",
+                            flexDirection: "row",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <View>
                             <Text
                               style={[
-                                { marginTop: 25, fontSize: 11, marginRight: 5 },
+                                {
+                                  color: "#000000",
+                                  fontWeight: "bold",
+                                  marginTop: 10,
+                                },
                               ]}
                             >
-                              {item.lastonline}
+                              {item.name}
                             </Text>
-                          )}
+                            <Text style={{ fontSize: 12 }}>{item.lastmsg}</Text>
+                          </View>
+                          <View>
+                            {item.lastonline === "RN" ? (
+                              <Text
+                                style={{
+                                  backgroundColor: "#0C7842",
+                                  width: 8,
+                                  height: 8,
+                                  marginTop: 26,
+                                  borderRadius: 50,
+                                  marginRight: 5,
+                                }}
+                              ></Text>
+                            ) : (
+                              <Text
+                                style={[
+                                  {
+                                    marginTop: 20,
+                                    fontSize: 11,
+                                    marginRight: 8,
+                                  },
+                                ]}
+                              >
+                                {item.lastonline}
+                              </Text>
+                            )}
+                          </View>
                         </View>
-                      </View>
-                      <Image
-                        source={require("../assets/images/phototake.png")}
-                        style={{
-                          width: 24,
-                          height: 20,
-                          marginBottom: 10,
-                          alignSelf: "center",
-                        }}
-                      />
-                    </TouchableOpacity>
-                  </>
-                )}
-              />
-            </ScrollView>
+                        <Image
+                          source={require("../assets/images/phototake.png")}
+                          style={{
+                            width: 24,
+                            height: 20,
+                            marginBottom: 6,
+                            alignSelf: "center",
+                          }}
+                        />
+                      </TouchableOpacity>
+                    </>
+                  )}
+                />
+              </ScrollView>
+            </View>
           </View>
         </View>
       </SafeAreaView>
@@ -169,8 +162,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#ffffff",
     paddingTop: 25,
-    marginLeft: 10,
-    marginRight: 10,
+    marginLeft: 9,
+    marginRight: 5,
   },
   row: {
     flexDirection: "row",
@@ -181,6 +174,6 @@ const styles = StyleSheet.create({
 
   chatItem: {
     flexDirection: "row",
-    marginTop: 5,
+    marginTop: 8,
   },
 });

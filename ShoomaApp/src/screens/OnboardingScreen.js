@@ -34,8 +34,8 @@ function OnboardingScreen({ navigation }) {
           image: (
             <Image
               style={{
-                width: "98%",
-                height: "98%",
+                width: "100%",
+                height: "100%",
                 marginTop: 52,
                 borderRadius: 20,
               }}
@@ -51,8 +51,8 @@ function OnboardingScreen({ navigation }) {
           image: (
             <Image
               style={{
-                width: "98%",
-                height: "98%",
+                width: "100%",
+                height: "100%",
                 marginTop: 52,
                 borderRadius: 20,
               }}

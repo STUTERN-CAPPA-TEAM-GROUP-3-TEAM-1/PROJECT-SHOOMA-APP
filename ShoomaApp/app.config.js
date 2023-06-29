@@ -14,6 +14,7 @@ export default {
       backgroundColor: "#0C7842",
       button: "center",
     },
+
     assetBundlePatterns: ["**/*"],
     ios: {
       supportsTablet: true,
